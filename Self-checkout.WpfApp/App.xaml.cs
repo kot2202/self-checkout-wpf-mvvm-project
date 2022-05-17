@@ -1,4 +1,5 @@
-﻿using Self_checkout.WpfApp.ViewModels;
+﻿using Self_checkout.WpfApp.Stores;
+using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -16,9 +17,12 @@ namespace Self_checkout.WpfApp
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            NavigationStore navigationStore = new NavigationStore();
+
+            navigationStore.CurrentViewModel = new WelcomeViewModel(navigationStore);
             MainWindow = new MainWindow()
             {
-                DataContext = new MainViewModel()
+                DataContext = new MainViewModel(navigationStore)
             };
             MainWindow.Show();
 
