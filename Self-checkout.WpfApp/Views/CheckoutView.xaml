@@ -7,6 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Label Content="Checkout View"/>
+        <Button Content="Next screen" Margin="313,196,313,196"/>
     </Grid>
 </UserControl>
