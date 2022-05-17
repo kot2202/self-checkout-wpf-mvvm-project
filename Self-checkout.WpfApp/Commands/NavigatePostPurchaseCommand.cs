@@ -5,21 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace Self_checkout.WpfApp.Commands
 {
-    internal class NavigateCheckoutCommand : CommandBase
+    internal class NavigatePostPurchaseCommand : CommandBase
     {
         private readonly NavigationStore _navigationStore;
 
-        public NavigateCheckoutCommand(NavigationStore navigationStore)
+        public NavigatePostPurchaseCommand(NavigationStore navigationStore)
         {
             _navigationStore = navigationStore;
         }
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new CheckoutViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = new PostPurchaseViewModel();
         }
     }
 }

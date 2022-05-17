@@ -5,9 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="480" d:DesignWidth="640" Background="LightBlue">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="4*"/>
+        </Grid.ColumnDefinitions>
         <Label Content="Welcome View"/>
-        <Button Content="Next screen" Margin="313,196,313,196" Command="{Binding NavigateCheckoutCommand}"/>
+        <Button Grid.Column="1" Content="Next screen" Command="{Binding NavigateCheckoutCommand}" HorizontalAlignment="Right" Margin="0,373,8,0" Width="240"/>
     </Grid>
 </UserControl>
