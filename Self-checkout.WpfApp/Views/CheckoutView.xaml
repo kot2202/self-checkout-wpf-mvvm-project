@@ -16,7 +16,7 @@
 
 
         </Label>
-        <ListBox x:Name="Paragon" Margin="10,10,10.333,154"/>
+        <ListBox Name="Paragon" Margin="10,10,10.333,154"/>
         <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Margin="0,392,0,0"/>
         <Button Name="But1" Content="1" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,169,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
         <Button Name="But9" Content="9" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69"/>
