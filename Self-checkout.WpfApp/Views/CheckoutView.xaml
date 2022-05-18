@@ -28,7 +28,8 @@
         <Button Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
         <Button Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
         <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,397,0,0" VerticalAlignment="Top" Width="61" Height="48"/>
-        <TextBox Text="{Binding ScreenValue}" Grid.Column="2" HorizontalAlignment="Left" Height="53" Margin="10.333,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="193"/>
+        <TextBox Text="{Binding ScreenValue}" Grid.Column="2" HorizontalAlignment="Center" Height="53" Margin="0,76,0,0" TextAlignment="Center" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="193" FontSize="26"/>
+
         <Button Name="butEnter" Content="Enter" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,399,0,0" VerticalAlignment="Top" Width="127" Height="46"/>
         <Button Name="Fruit" Content="Owoce" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,26,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
         <Button Name="vegetables" Content="Warzywa" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,169,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
