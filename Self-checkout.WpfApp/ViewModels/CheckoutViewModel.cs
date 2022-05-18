@@ -10,8 +10,13 @@ namespace Self_checkout.WpfApp.ViewModels
 {
     public class CheckoutViewModel : ViewModelBase
     {
-        private string _screenValue;
+        private const int _maxScreenLength = 13; // 13 digits for EAN-13
+        public int MaxScreenLength
+        {
+            get { return _maxScreenLength; }
+        }
 
+        private string _screenValue = "";
         public string ScreenValue
         {
             get { return _screenValue; }

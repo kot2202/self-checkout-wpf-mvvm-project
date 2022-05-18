@@ -17,7 +17,8 @@ namespace Self_checkout.WpfApp.Commands
         }
         public override void Execute(object parameter)
         {
-            _viewModel.ScreenValue += parameter as string;
+            if(_viewModel.ScreenValue.Length < _viewModel.MaxScreenLength)
+                _viewModel.ScreenValue += parameter as string;
         }
     }
 }
