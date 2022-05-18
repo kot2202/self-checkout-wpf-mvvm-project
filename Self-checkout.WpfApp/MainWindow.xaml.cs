@@ -23,6 +23,20 @@ namespace Self_checkout.WpfApp
         public MainWindow()
         {
             InitializeComponent();
+            InitializeMainWindow();
+        }
+
+        private void InitializeMainWindow()
+        {
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+#if DEBUG
+            ResizeMode = ResizeMode.CanResizeWithGrip;
+#else
+            WindowStyle = WindowStyle.None;
+            WindowState = WindowState.Maximized;
+            ResizeMode = ResizeMode.NoResize;
+            Topmost = true;
+#endif
         }
     }
 }
