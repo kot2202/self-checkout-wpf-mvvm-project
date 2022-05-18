@@ -18,22 +18,22 @@
         </Label>
         <ListBox x:Name="Paragon" Margin="10,10,10.333,154"/>
         <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Margin="0,392,0,0"/>
-        <Button Name="But1" Content="1" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,169,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="But1_Click"/>
-        <Button Name="But9" Content="9" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69" Click="But9_Click"/>
-        <Button Name="but8" Content="8" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69" Click="but8_Click"/>
-        <Button Name="but7" Content="7" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,321,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="but7_Click"/>
-        <Button Name="but6" Content="6" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="but6_Click"/>
-        <Button Name="but5" Content="5" HorizontalAlignment="Left" Margin="76.333,246,0,0" VerticalAlignment="Top" Width="61" Grid.Column="2" Height="70" Click="but5_Click"/>
-        <Button Name="but4" Content="4" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="but4_Click"/>
-        <Button Name="but2" Content="2" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="but2_Click"/>
-        <Button Name="but3" Content="3" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70" Click="but3_Click"/>
-        <TextBox x:Name="Screen" Grid.Column="2" HorizontalAlignment="Left" Height="53" Margin="10.333,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="193"/>
-        <Button x:Name="butEnter" Content="Enter" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,399,0,0" VerticalAlignment="Top" Width="127" Height="46" Click="butEnter_Click"/>
-        <Button x:Name="but0" Content="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,397,0,0" VerticalAlignment="Top" Width="61" Height="48" Click="but0_Click"/>
-        <Button x:Name="Fruit" Content="Owoce" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,26,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button x:Name="vegetables" Content="Warzywa" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,169,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button x:Name="Bread" Content="Pieczywo" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,310,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button x:Name="DEL" Content="C" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,145,0,0" VerticalAlignment="Top" Width="127" Click="DEL_Click" />
-        <Button x:Name="Accept" Content="Zatwierdź" Margin="10,333,10.333,111" Click="Accept_Click"/>
+        <Button Name="But1" Content="1" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,169,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="But9" Content="9" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69"/>
+        <Button Name="but8" Content="8" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69"/>
+        <Button Name="but7" Content="7" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,321,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="but6" Content="6" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="but5" Content="5" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="but4" Content="4" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="but2" Content="2" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <Button Name="but3" Content="3" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
+        <TextBox Name="Screen" Grid.Column="2" HorizontalAlignment="Left" Height="53" Margin="10.333,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="193"/>
+        <Button Name="butEnter" Content="Enter" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,399,0,0" VerticalAlignment="Top" Width="127" Height="46"/>
+        <Button Name="but0" Content="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,397,0,0" VerticalAlignment="Top" Width="61" Height="48"/>
+        <Button Name="Fruit" Content="Owoce" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,26,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
+        <Button Name="vegetables" Content="Warzywa" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,169,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
+        <Button Name="Bread" Content="Pieczywo" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,310,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
+        <Button Name="DEL" Content="C" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,145,0,0" VerticalAlignment="Top" Width="127"/>
+        <Button Name="Accept" Content="Zatwierdź" Margin="10,333,10.333,111"/>
     </Grid>
 </UserControl>
