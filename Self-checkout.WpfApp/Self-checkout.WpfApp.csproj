@@ -56,8 +56,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\NavigateCheckoutCommand.cs" />
-    <Compile Include="Commands\NavigatePostPurchaseCommand.cs" />
+    <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />

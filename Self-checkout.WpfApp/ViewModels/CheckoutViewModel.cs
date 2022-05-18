@@ -14,7 +14,7 @@ namespace Self_checkout.WpfApp.ViewModels
 
         public CheckoutViewModel(Stores.NavigationStore navigationStore)
         {
-            NavigatePostPurchaseCommand = new NavigatePostPurchaseCommand(navigationStore);
-    }
+            NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
+        }
     }
 }

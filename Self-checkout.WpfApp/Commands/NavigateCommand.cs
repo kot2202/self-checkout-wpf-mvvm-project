@@ -9,17 +9,20 @@ using System.Windows.Input;
 
 namespace Self_checkout.WpfApp.Commands
 {
-    internal class NavigateCheckoutCommand : CommandBase
+    internal class NavigateCommand<TViewModel> : CommandBase
+        where TViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
+        private readonly Func<TViewModel> _createViewModel;
 
-        public NavigateCheckoutCommand(NavigationStore navigationStore)
+        public NavigateCommand(NavigationStore navigationStore, Func<TViewModel> createViewModel)
         {
             _navigationStore = navigationStore;
+            _createViewModel = createViewModel;
         }
         public override void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = new CheckoutViewModel(_navigationStore);
+            _navigationStore.CurrentViewModel = _createViewModel();
         }
     }
 }
