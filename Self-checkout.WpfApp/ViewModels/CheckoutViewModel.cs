@@ -28,11 +28,13 @@ namespace Self_checkout.WpfApp.ViewModels
 
         public ICommand NavigatePostPurchaseCommand { get; set; }
         public ICommand AddNumberCommand { get;}
+        public ICommand ClearCommand { get; }
 
         public CheckoutViewModel(Stores.NavigationStore navigationStore)
         {
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
             AddNumberCommand = new AddNumberCommand(this);
+            ClearCommand = new ClearCommand(this);
         }
     }
 }
