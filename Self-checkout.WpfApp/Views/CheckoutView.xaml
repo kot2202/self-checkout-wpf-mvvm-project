@@ -8,33 +8,34 @@
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
     <Grid Margin="0,2,0,-2">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
-        <Label>
+
+        <Label Margin="0,0,1.333,0">
 
 
         </Label>
         <ListBox Name="Paragon" Margin="10,10,10.333,154"/>
-        <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Margin="0,392,0,0"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,169,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,322,0,0" VerticalAlignment="Top" Width="61" Height="69"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,321,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,246,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Column="2" HorizontalAlignment="Left" Margin="142.333,171,0,0" VerticalAlignment="Top" Width="61" Height="70"/>
-        <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Column="2" HorizontalAlignment="Left" Margin="10.333,397,0,0" VerticalAlignment="Top" Width="61" Height="48"/>
-        <TextBox Text="{Binding ScreenValue}" Grid.Column="2" HorizontalAlignment="Center" Height="53" Margin="0,76,0,0" TextAlignment="Center" VerticalContentAlignment="Center"  VerticalAlignment="Top" Width="193" FontSize="26"/>
+        <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Margin="0,0,0.333,0" Height="88" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" Grid.Column="2" Margin="0.333,0,143,237" Height="70" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="70"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" Grid.Column="2" Margin="143.333,0,0,91" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" Grid.Column="2" HorizontalAlignment="Center" Margin="72.333,0,71,91" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Column="2" Margin="0.333,0,143,91" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" Grid.Column="2" Margin="143.333,0,0,164" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" Grid.Column="2" HorizontalAlignment="Center" Margin="72.333,0,71,164" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" Grid.Column="2" Margin="0.333,0,143,164" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Column="2" Margin="72.333,0,71,237" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Column="2" Margin="143.333,0,0,237" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Column="2" Margin="0.333,0,143,17" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
+        <TextBox Text="{Binding ScreenValue}" Grid.Column="2" Height="53" Margin="8.667,76,25,0" TextAlignment="Center" VerticalContentAlignment="Center"  VerticalAlignment="Top" FontSize="26"/>
 
-        <Button Name="butEnter" Content="Enter" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,399,0,0" VerticalAlignment="Top" Width="127" Height="46"/>
-        <Button Name="Fruit" Content="Owoce" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,26,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button Name="vegetables" Content="Warzywa" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,169,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button Name="Bread" Content="Pieczywo" Grid.Column="1" HorizontalAlignment="Left" Margin="30.667,310,0,0" VerticalAlignment="Top" Width="146" Height="119"/>
-        <Button Name="DEL" Content="C" Grid.Column="2" HorizontalAlignment="Left" Margin="76.333,145,0,0" VerticalAlignment="Top" Width="127"/>
-        <Button Name="Accept" Content="Zatwierdź" Margin="10,333,10.333,111"/>
+        <Button Name="butEnter" Content="Enter" Grid.Column="2" Margin="72.333,0,0,17" HorizontalAlignment="Center" Width="141" Height="70" VerticalAlignment="Bottom"/>
+        <Button Name="Fruit" Content="Owoce" Grid.Column="1" Margin="30.667,321,38.333,0" Height="124" VerticalAlignment="Top"/>
+        <Button Name="vegetables" Content="Warzywa" Grid.Column="1" Margin="30.667,192,38.333,0" Height="124" VerticalAlignment="Top"/>
+        <Button Name="Bread" Content="Pieczywo" Grid.Column="1" Margin="30.667,61,38.333,0" Height="124" VerticalAlignment="Top"/>
+        <Button Name="DEL" Content="C" Grid.Column="2" Margin="72.333,0,0,314" Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="141"/>
+        <Button Name="Accept" Content="Zatwierdź" Margin="10,0,10.333,111" Height="36" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
