@@ -24,5 +24,11 @@ namespace Self_checkout.WpfApp.Views
         {
             InitializeComponent();
         }
+
+        // TODO find possible different approach
+        private void CheckoutViewControl_Loaded(object sender, RoutedEventArgs e)
+        {
+            Focus(); // Has to be here unless FocusManager.FocusedElement like solution gets found
+        }
     }
 }

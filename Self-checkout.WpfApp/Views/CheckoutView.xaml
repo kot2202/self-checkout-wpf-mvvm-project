@@ -5,7 +5,22 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
              mc:Ignorable="d" 
+             Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
+    <UserControl.InputBindings>
+        <KeyBinding Key="D1" Command="{Binding AddNumberCommand}" CommandParameter="1" />
+        <KeyBinding Key="D2" Command="{Binding AddNumberCommand}" CommandParameter="2" />
+        <KeyBinding Key="D3" Command="{Binding AddNumberCommand}" CommandParameter="3" />
+        <KeyBinding Key="D4" Command="{Binding AddNumberCommand}" CommandParameter="4" />
+        <KeyBinding Key="D5" Command="{Binding AddNumberCommand}" CommandParameter="5" />
+        <KeyBinding Key="D6" Command="{Binding AddNumberCommand}" CommandParameter="6" />
+        <KeyBinding Key="D7" Command="{Binding AddNumberCommand}" CommandParameter="7" />
+        <KeyBinding Key="D8" Command="{Binding AddNumberCommand}" CommandParameter="8" />
+        <KeyBinding Key="D9" Command="{Binding AddNumberCommand}" CommandParameter="9" />
+        <KeyBinding Key="D0" Command="{Binding AddNumberCommand}" CommandParameter="0" />
+        <KeyBinding Key="Backspace" Command="{Binding ClearCommand}" />
+        <KeyBinding Key="E" Command="{Binding AddProductCommand}" /> <!-- Needs key different than Enter or Space to prevent accidental button clicks -->
+    </UserControl.InputBindings>
     <Grid Margin="0,2,0,-2">
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
