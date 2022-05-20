@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views"
+             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
     <Grid Margin="0,2,0,-2">
@@ -31,11 +31,11 @@
         <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Column="2" Margin="0.333,0,143,17" HorizontalAlignment="Center" Width="70" Height="70" VerticalAlignment="Bottom"/>
         <TextBox Text="{Binding ScreenValue}" Grid.Column="2" Height="53" Margin="8.667,76,25,0" TextAlignment="Center" VerticalContentAlignment="Center"  VerticalAlignment="Top" FontSize="26"/>
 
-        <Button Name="butEnter" Content="Enter" Grid.Column="2" Margin="72.333,0,0,17" HorizontalAlignment="Center" Width="141" Height="70" VerticalAlignment="Bottom"/>
+        <Button Command="{Binding AddProductCommand}" Name="butEnter" Content="Enter" Grid.Column="2" Margin="72.333,0,0,17" HorizontalAlignment="Center" Width="141" Height="70" VerticalAlignment="Bottom"/>
         <Button Name="Fruit" Content="Owoce" Grid.Column="1" Margin="30.667,321,38.333,0" Height="124" VerticalAlignment="Top"/>
         <Button Name="vegetables" Content="Warzywa" Grid.Column="1" Margin="30.667,192,38.333,0" Height="124" VerticalAlignment="Top"/>
         <Button Name="Bread" Content="Pieczywo" Grid.Column="1" Margin="30.667,61,38.333,0" Height="124" VerticalAlignment="Top"/>
-        <Button Name="DEL" Content="C" Grid.Column="2" Margin="72.333,0,0,314" Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="141"/>
+        <Button Command="{Binding ClearCommand}" Name="DEL" Content="C" Grid.Column="2" Margin="72.333,0,0,314" Height="21" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="141"/>
         <Button Name="Accept" Content="Zatwierdź" Margin="10,0,10.333,111" Height="36" VerticalAlignment="Bottom"/>
     </Grid>
 </UserControl>
