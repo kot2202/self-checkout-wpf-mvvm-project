@@ -56,6 +56,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\AddNumberCommand.cs" />
+    <Compile Include="Commands\AddProductCommand.cs" />
+    <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
