@@ -27,7 +27,8 @@ namespace Self_checkout.WpfApp.ViewModels
         }
 
         public ICommand NavigatePostPurchaseCommand { get; set; }
-        public ICommand AddNumberCommand { get;}
+        public ICommand AddNumberCommand { get; }
+        public ICommand UndoNumberCommand { get; }
         public ICommand ClearCommand { get; }
         public ICommand AddProductCommand { get; }
 
@@ -35,6 +36,7 @@ namespace Self_checkout.WpfApp.ViewModels
         {
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
             AddNumberCommand = new AddNumberCommand(this);
+            UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
         }

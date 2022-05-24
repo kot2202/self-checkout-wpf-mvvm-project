@@ -68,6 +68,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBox Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1,5"/>
+            <Button Command="{Binding UndoNumberCommand}" Content="←" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="1"/>
             <Button Command="{Binding ClearCommand}" Content="C" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Margin="1"/>
             <Button Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="1"/>
             <Button Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="1"/>
