@@ -28,6 +28,20 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0" Margin="10,60">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <ListBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6"/>
+            <Button Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1"/>
+        </Grid>
         <Grid Grid.Column="1" Margin="10,30">
             <Grid.RowDefinitions>
                 <RowDefinition />
@@ -67,14 +81,6 @@
             <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="1"/>
             <Button Command="{Binding AddProductCommand}" Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="1"/>
         </Grid>
-
-        <Label Margin="0,0,1.333,0">
-
-
-        </Label>
-        <ListBox Name="Paragon" Margin="10,10,10.333,154"/>
-        <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Margin="0,0,0.333,0" Height="88" VerticalAlignment="Bottom"/>
-        
-        <Button Name="Accept" Content="Zatwierdź" Margin="10,0,10.333,111" Height="36" VerticalAlignment="Bottom"/>
+        <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
     </Grid>
 </UserControl>
