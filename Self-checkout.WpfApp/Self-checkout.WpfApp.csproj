@@ -47,6 +47,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -71,6 +73,30 @@
     <Compile Include="Commands\CommandBase.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\UndoNumberCommand.cs" />
+    <Compile Include="DAL\Category.cs">
+      <DependentUpon>StoreDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Order.cs">
+      <DependentUpon>StoreDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\Product.cs">
+      <DependentUpon>StoreDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StoreDbModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreDbModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StoreDbModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreDbModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DAL\StoreDbModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StoreDbModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="ViewModels\CheckoutViewModel.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
@@ -129,6 +155,13 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="DAL\StoreDbModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StoreDbModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="DAL\StoreDbModel.edmx.diagram">
+      <DependentUpon>StoreDbModel.edmx</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -137,6 +170,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DAL\StoreDbModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreDbModel.edmx</DependentUpon>
+      <LastGenOutput>StoreDbModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DAL\StoreDbModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>StoreDbModel.edmx</DependentUpon>
+      <LastGenOutput>StoreDbModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
