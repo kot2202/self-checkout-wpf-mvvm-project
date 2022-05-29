@@ -78,7 +78,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <TextBox Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
+            <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
             <Button Command="{Binding UndoNumberCommand}" Content="←" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="1"/>
             <Button Command="{Binding ClearCommand}" Content="C" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Margin="1"/>
             <Button Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="1"/>
@@ -91,7 +91,7 @@
             <Button Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Margin="1"/>
             <Button Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2" Margin="1"/>
             <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="1"/>
-            <Button Command="{Binding AddProductCommand}" Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="1"/>
+            <Button Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="1"/>
         </Grid>
         <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
     </Grid>
