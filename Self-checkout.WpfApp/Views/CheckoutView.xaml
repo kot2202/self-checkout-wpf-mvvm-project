@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
+             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -38,20 +39,42 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListView ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6">
+            <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
                 <ListView.View>
                     <GridView>
-                        <GridViewColumn Header="Image">
+                        <GridViewColumn ctrl:ProportionalColumn.Width="1">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <Image Source="{Binding product_img}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding product_name}" Header="name">
+                        <GridViewColumn  Header="name" ctrl:ProportionalColumn.Width="3">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn DisplayMemberBinding="{Binding CalculatedQuantity}" Header="quantity" />
-                        <GridViewColumn DisplayMemberBinding="{Binding product_price}" Header="price" />
+                        <GridViewColumn Header="Ilość" ctrl:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CalculatedQuantity}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="price" ctrl:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
                     </GridView>
                 </ListView.View>
             </ListView>
