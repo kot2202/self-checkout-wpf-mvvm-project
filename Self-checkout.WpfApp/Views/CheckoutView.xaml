@@ -28,7 +28,6 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
         <Grid Grid.Column="0" Margin="10,60">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -39,7 +38,23 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6"/>
+            <ListView ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Image">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding convertedImage}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding product_name}" Header="name">
+                        </GridViewColumn>
+                        <GridViewColumn DisplayMemberBinding="{Binding CalculatedQuantity}" Header="quantity" />
+                        <GridViewColumn DisplayMemberBinding="{Binding product_price}" Header="price" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
             <Button Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1"/>
         </Grid>
         <Grid Grid.Column="1" Margin="0,60">
