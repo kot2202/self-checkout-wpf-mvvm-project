@@ -54,7 +54,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn  Header="name" ctrl:ProportionalColumn.Width="3">
+                        <GridViewColumn  Header="Nazwa" ctrl:ProportionalColumn.Width="3">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
@@ -68,7 +68,7 @@
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
-                        <GridViewColumn Header="price" ctrl:ProportionalColumn.Width="1">
+                        <GridViewColumn Header="Cena" ctrl:ProportionalColumn.Width="1">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
                                     <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
