@@ -1,4 +1,5 @@
 ﻿using Self_checkout.WpfApp.Commands;
+using Self_checkout.WpfApp.DAL; // TODO REMOVE THIS AFTER TESTING IS DONE
 using Self_checkout.WpfApp.Models;
 using System;
 using System.Collections.Generic;
@@ -50,14 +51,18 @@ namespace Self_checkout.WpfApp.ViewModels
 
 
             // TODO REMOVE THIS AFTER TESTING IS DONE
-            List<ProductModel> testingProducts = new List<ProductModel>()
             {
-                new ProductModel(){product_name = "name1", CalculatedQuantity = 3, product_price = 2.5m},
-                new ProductModel(){product_name = "name2", CalculatedQuantity = 8, product_price = 99.99m},
-                new ProductModel(){product_name = "name3", CalculatedQuantity = 1, product_price = 1.00m}
-            };
+                StoreEntities dbContext = new StoreEntities();
+                var x = dbContext.Product.ToList();
 
-            ListOfProducts = testingProducts;
+                List<ProductModel> newList = new List<ProductModel>();
+                foreach (var y in x)
+                {
+                    ProductModel newModel = new ProductModel() { product_img = y.product_img, product_name = y.product_name, product_price = y.product_price };
+                    newList.Add(newModel);
+                }
+                ListOfProducts = newList;
+            }
         }
     }
 }

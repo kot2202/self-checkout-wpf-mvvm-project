@@ -44,7 +44,7 @@
                         <GridViewColumn Header="Image">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Image Source="{Binding ConvertedImage}" />
+                                    <Image Source="{Binding product_img}" />
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

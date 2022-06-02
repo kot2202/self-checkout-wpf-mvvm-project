@@ -16,6 +16,5 @@ namespace Self_checkout.WpfApp.Models
         }
 
         public float CalculatedQuantity { get; set; }
-        public BitmapImage ConvertedImage { get; set; }
     }
 }
