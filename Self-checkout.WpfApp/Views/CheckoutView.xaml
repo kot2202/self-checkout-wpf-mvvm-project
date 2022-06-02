@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
+             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" xmlns:iconPacks1="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" xmlns:iconPacks2="http://metro.mahapps.com/winfx/xaml/iconpacks" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -40,7 +40,13 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <ListBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6"/>
-            <Button Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1"/>
+            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1">
+                <Grid Margin="10">
+                    <Viewbox MaxHeight="60">
+                        <TextBlock TextWrapping="Wrap" Text="Zatwierdź zakup"/>
+                    </Viewbox>
+                </Grid>
+            </Button>
         </Grid>
         <Grid Grid.Column="1" Margin="0,60">
             <Grid.RowDefinitions>
@@ -59,9 +65,18 @@
                 <RowDefinition />
                 <RowDefinition />
             </Grid.RowDefinitions>
-            <Button Content="Owoce" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="0" Grid.RowSpan="4" Margin="30,0,30,1"/>
-            <Button Content="Warzywa" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.RowSpan="4"  Margin="30,1"/>
-            <Button Content="Pieczywo" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="10" Grid.RowSpan="4" Margin="30,1,30,1"/>
+            
+            <Button Style="{DynamicResource CategoryButton}" Grid.Row="0" Grid.RowSpan="4" Margin="30,0,30,1">
+                <iconPacks:PackIconMaterial Kind="FruitWatermelon" Height="auto" Width="auto" />
+            </Button>
+
+            <Button Style="{DynamicResource CategoryButton}" Grid.Row="5" Grid.RowSpan="4"  Margin="30,1">
+                <iconPacks1:PackIconFontAwesome Kind="CarrotSolid" Height="auto" Width="auto" />
+            </Button>
+
+            <Button Style="{DynamicResource CategoryButton}" Grid.Row="10" Grid.RowSpan="4" Margin="30,1,30,1">
+                <iconPacks:PackIconMaterial Kind="Baguette" Height="auto" Width="auto" />
+            </Button>
         </Grid>
         <Grid Grid.Column="2" Margin="10,60">
             <Grid.RowDefinitions>
@@ -79,19 +94,41 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
-            <Button Command="{Binding UndoNumberCommand}" Content="←" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="1" Margin="1"/>
-            <Button Command="{Binding ClearCommand}" Content="C" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="2" Grid.Column="2" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="1" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="3" Grid.Column="2" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="1" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="4" Grid.Column="2" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="1" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="5" Grid.Column="2" Margin="1"/>
-            <Button Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="1"/>
-            <Button Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2" Margin="1"/>
+            <Button Command="{Binding UndoNumberCommand}" Grid.Row="2" Grid.Column="1" Margin="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <iconPacks2:PackIconMicrons Kind="Undo" Height="auto" Width="auto"/>
+                </Grid>
+            </Button>
+            <Button Command="{Binding ClearCommand}" Grid.Row="2" Grid.Column="2" Margin="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+                    <iconPacks2:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
+                </Grid>
+            </Button>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Row="3"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" Grid.Row="3" Grid.Column="1"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" Grid.Row="3" Grid.Column="2"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" Grid.Row="4"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" Grid.Row="4" Grid.Column="1"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" Grid.Row="4" Grid.Column="2"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" Grid.Row="5"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Row="5" Grid.Column="1"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Row="5" Grid.Column="2"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Row="6"/>
+            <Button Style="{StaticResource InputButton}" Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
+                <Grid Margin="10">
+                    <Viewbox MaxHeight="60">
+                        <TextBlock Text="Dodaj produkt "/>
+                    </Viewbox>
+                </Grid>
+            </Button>
         </Grid>
         <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
     </Grid>
