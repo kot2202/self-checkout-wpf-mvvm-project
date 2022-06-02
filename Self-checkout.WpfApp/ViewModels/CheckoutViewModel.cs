@@ -1,5 +1,4 @@
 ﻿using Self_checkout.WpfApp.Commands;
-using Self_checkout.WpfApp.DAL; // TODO REMOVE THIS AFTER TESTING IS DONE
 using Self_checkout.WpfApp.Models;
 using System;
 using System.Collections.Generic;
@@ -48,21 +47,6 @@ namespace Self_checkout.WpfApp.ViewModels
             UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
-
-
-            // TODO REMOVE THIS AFTER TESTING IS DONE
-            {
-                StoreEntities dbContext = new StoreEntities();
-                var x = dbContext.Product.ToList();
-
-                List<ProductModel> newList = new List<ProductModel>();
-                foreach (var y in x)
-                {
-                    ProductModel newModel = new ProductModel() { product_img = y.product_img, product_name = y.product_name, product_price = y.product_price };
-                    newList.Add(newModel);
-                }
-                ListOfProducts = newList;
-            }
         }
     }
 }
