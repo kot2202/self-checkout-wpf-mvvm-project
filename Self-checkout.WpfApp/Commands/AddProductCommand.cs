@@ -25,6 +25,12 @@ namespace Self_checkout.WpfApp.Commands
             TryToAddProduct(productId);
         }
 
+        public override bool CanExecute(object parameter)
+        {
+            if (!_viewModel.IsScreenEmpty()) return true;
+            else return false;
+        }
+
         private bool TryToAddProduct(long productCode)
         {
             ProductModel productThatExists = _viewModel.ListOfProducts.Where(x => x.product_id == productCode).SingleOrDefault();

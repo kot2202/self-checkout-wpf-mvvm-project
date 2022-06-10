@@ -25,8 +25,21 @@ namespace Self_checkout.WpfApp.ViewModels
             set {
                 _screenValue = value;
                 OnPropertyChanged();
+                AddNumberCommand.OnCanExecuteChanged();
+                UndoNumberCommand.OnCanExecuteChanged();
+                ClearCommand.OnCanExecuteChanged();
+                AddProductCommand.OnCanExecuteChanged();
                 }
         }
+
+        private int _x;
+
+        public int X
+        {
+            get { return _x; }
+            set { _x = value; }
+        }
+
 
         private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
         public ObservableCollection<ProductModel> ListOfProducts
@@ -36,10 +49,11 @@ namespace Self_checkout.WpfApp.ViewModels
         }
 
         public ICommand NavigatePostPurchaseCommand { get; set; }
-        public ICommand AddNumberCommand { get; }
-        public ICommand UndoNumberCommand { get; }
-        public ICommand ClearCommand { get; }
-        public ICommand AddProductCommand { get; }
+
+        public AddNumberCommand AddNumberCommand { get; set; }
+        public UndoNumberCommand UndoNumberCommand { get; }
+        public ClearCommand ClearCommand { get; }
+        public AddProductCommand AddProductCommand { get; }
 
         public CheckoutViewModel(Stores.NavigationStore navigationStore)
         {
@@ -48,6 +62,17 @@ namespace Self_checkout.WpfApp.ViewModels
             UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
+        }
+
+        public int GetScreenLength()
+        {
+            return _screenValue.Length;
+        }
+
+        public bool IsScreenEmpty()
+        {
+            if (_screenValue.Length == 0) return true;
+            else return false;
         }
     }
 }

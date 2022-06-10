@@ -15,7 +15,7 @@ namespace Self_checkout.WpfApp.Commands
 
         public abstract void Execute(object parameter);
 
-        protected void OnCanExecuteChanged()
+        public virtual void OnCanExecuteChanged()
         {
             CanExecuteChanged?.Invoke(this, new EventArgs());
         }

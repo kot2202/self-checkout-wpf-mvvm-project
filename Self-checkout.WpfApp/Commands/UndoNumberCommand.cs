@@ -14,12 +14,18 @@ namespace Self_checkout.WpfApp.Commands
         public UndoNumberCommand(CheckoutViewModel viewModel)
         {
             _viewModel = viewModel;
+            OnCanExecuteChanged();
         }
         public override void Execute(object parameter)
         {
             int currentLength = _viewModel.ScreenValue.Length;
-            if (currentLength > 0)
-                _viewModel.ScreenValue = _viewModel.ScreenValue.Remove(currentLength - 1);
+            _viewModel.ScreenValue = _viewModel.ScreenValue.Remove(currentLength - 1);
+        }
+
+        public override bool CanExecute(object parameter)
+        {
+            if (!_viewModel.IsScreenEmpty()) return true;
+            else return false;
         }
     }
 }
