@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
-             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout"
+             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -103,7 +103,7 @@
             </Button>
 
             <Button Style="{DynamicResource CategoryButton}" Grid.Row="5" Grid.RowSpan="4"  Margin="30,1">
-                <iconPacks1:PackIconFontAwesome Kind="CarrotSolid" Height="auto" Width="auto" />
+                <iconPacks:PackIconFontAwesome Kind="CarrotSolid" Height="auto" Width="auto" />
             </Button>
 
             <Button Style="{DynamicResource CategoryButton}" Grid.Row="10" Grid.RowSpan="4" Margin="30,1,30,1">
@@ -132,7 +132,7 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <iconPacks2:PackIconMicrons Kind="Undo" Height="auto" Width="auto"/>
+                    <iconPacks:PackIconMicrons Kind="Undo" Height="auto" Width="auto"/>
                 </Grid>
             </Button>
             <Button Command="{Binding ClearCommand}" Grid.Row="2" Grid.Column="2" Margin="1">
@@ -141,7 +141,7 @@
                         <ColumnDefinition Width="1*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
-                    <iconPacks2:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
+                    <iconPacks:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
                 </Grid>
             </Button>
             <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Row="3"/>
