@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" xmlns:iconPacks="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.Material" xmlns:iconPacks1="clr-namespace:MahApps.Metro.IconPacks;assembly=MahApps.Metro.IconPacks.FontAwesome" xmlns:iconPacks2="http://metro.mahapps.com/winfx/xaml/iconpacks" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
+             xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
+             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -28,7 +29,6 @@
             <ColumnDefinition />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
-
         <Grid Grid.Column="0" Margin="10,60">
             <Grid.RowDefinitions>
                 <RowDefinition/>
@@ -39,14 +39,46 @@
                 <RowDefinition/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <ListBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6"/>
-            <Button VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1">
-                <Grid Margin="10">
-                    <Viewbox MaxHeight="60">
-                        <TextBlock TextWrapping="Wrap" Text="Zatwierdź zakup"/>
-                    </Viewbox>
-                </Grid>
-            </Button>
+            <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6">
+                <ListView.ItemContainerStyle>
+                    <Style TargetType="ListViewItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                    </Style>
+                </ListView.ItemContainerStyle>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn ctrl:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Image Source="{Binding product_img}" />
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn  Header="Nazwa" ctrl:ProportionalColumn.Width="3">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Ilość" ctrl:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding CalculatedQuantity}" HorizontalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="Cena" ctrl:ProportionalColumn.Width="1">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <Button Content="Zatwierdź" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="6" Margin="0,1"/>
         </Grid>
         <Grid Grid.Column="1" Margin="0,60">
             <Grid.RowDefinitions>

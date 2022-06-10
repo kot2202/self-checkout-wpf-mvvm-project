@@ -1,4 +1,6 @@
-﻿using Self_checkout.WpfApp.ViewModels;
+﻿using Self_checkout.WpfApp.DAL;
+using Self_checkout.WpfApp.Models;
+using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +17,39 @@ namespace Self_checkout.WpfApp.Commands
         {
             _viewModel = viewModel;
         }
+
+        // TODO Add if screenvalue empty can execute -> false
         public override void Execute(object parameter)
         {
-            throw new NotImplementedException(); // TODO add sql query to add product to the product list on the left
+            long.TryParse((string)parameter, out var productId);
+            TryToAddProduct(productId);
+        }
+
+        private bool TryToAddProduct(long productCode)
+        {
+            ProductModel productThatExists = _viewModel.ListOfProducts.Where(x => x.product_id == productCode).SingleOrDefault();
+            // Removes and re-adds the product to update the list of products
+            // It makes sense to do so as it will place the updated product at the bottom
+            if(productThatExists != null)
+            {
+                _viewModel.ListOfProducts.Remove(productThatExists);
+                // TODO Add weight randomization for products that have it
+                productThatExists.CalculatedQuantity++;
+                _viewModel.ListOfProducts.Add(productThatExists);
+                return true;
+            }
+
+            using(var dbContext = new StoreEntities())
+            {
+                Product product = dbContext.Product.Where(x => x.product_id == productCode).SingleOrDefault(); // Db itself shouldn't let more products with same id appear
+                if(product != null)
+                {
+                    ProductModel productToAdd = new ProductModel(product);
+                    _viewModel.ListOfProducts.Add(productToAdd);
+                    return true;
+                }
+                return false;
+            }
         }
     }
 }

@@ -1,6 +1,8 @@
 ﻿using Self_checkout.WpfApp.Commands;
+using Self_checkout.WpfApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,6 +26,13 @@ namespace Self_checkout.WpfApp.ViewModels
                 _screenValue = value;
                 OnPropertyChanged();
                 }
+        }
+
+        private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfProducts
+        {
+            get {  return _listOfProducts; }
+            set { _listOfProducts = value;}
         }
 
         public ICommand NavigatePostPurchaseCommand { get; set; }

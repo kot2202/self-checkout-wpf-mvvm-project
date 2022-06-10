@@ -1,0 +1,18 @@
+USE [Store]
+INSERT INTO Category VALUES('Owoce')
+INSERT INTO Category VALUES('Warzywa')
+INSERT INTO Category VALUES('Pieczywo')
+INSERT INTO Category VALUES('Inne')
+GO
+---
+--- TODO Add product images ( replace NULL )
+--- TODO Maybe add multiple categories - one per piece, one per kg
+---
+INSERT INTO Product VALUES(1,'Jabłka luz',2.84,NULL)
+INSERT INTO Product VALUES(1,'Banany luz',4.52,NULL)
+
+INSERT INTO Product VALUES(2,'Papryka luz',14.25,NULL)
+INSERT INTO Product VALUES(2,'Pomidor luz',12.37,NULL)
+
+INSERT INTO Product VALUES(3,'Kajzerka',0.69,NULL)
+INSERT INTO Product VALUES(3,'Donut',1.61,NULL)
