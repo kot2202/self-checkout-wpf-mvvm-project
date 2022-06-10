@@ -23,6 +23,7 @@ namespace Self_checkout.WpfApp.Commands
         {
             long.TryParse((string)parameter, out var productId);
             TryToAddProduct(productId);
+            _viewModel.RecalculatePriceSum();
         }
 
         public override bool CanExecute(object parameter)

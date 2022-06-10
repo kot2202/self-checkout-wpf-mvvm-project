@@ -21,6 +21,6 @@ namespace Self_checkout.WpfApp.Models
             CalculatedQuantity = 1;
         }
 
-        public float CalculatedQuantity { get; set; }
+        public decimal CalculatedQuantity { get; set; }
     }
 }

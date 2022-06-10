@@ -32,11 +32,34 @@ namespace Self_checkout.WpfApp.ViewModels
                 }
         }
 
+        private decimal _priceSum = 0;
+
+        public decimal PriceSum
+        {
+            get { return _priceSum; }
+            set
+            {
+                _priceSum =  value;
+                OnPropertyChanged();
+            }
+        }
+
+
         private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
         public ObservableCollection<ProductModel> ListOfProducts
         {
-            get {  return _listOfProducts; }
-            set { _listOfProducts = value;}
+            get { return _listOfProducts; }
+            set { _listOfProducts = value; }
+        }
+
+        public void RecalculatePriceSum()
+        {
+            decimal price = 0;
+            foreach(ProductModel product in _listOfProducts)
+            {
+                price += product.CalculatedQuantity * product.product_price;
+            }
+            PriceSum = price;
         }
 
         public ICommand NavigatePostPurchaseCommand { get; set; }
