@@ -32,15 +32,6 @@ namespace Self_checkout.WpfApp.ViewModels
                 }
         }
 
-        private int _x;
-
-        public int X
-        {
-            get { return _x; }
-            set { _x = value; }
-        }
-
-
         private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
         public ObservableCollection<ProductModel> ListOfProducts
         {
@@ -62,11 +53,6 @@ namespace Self_checkout.WpfApp.ViewModels
             UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
-        }
-
-        public int GetScreenLength()
-        {
-            return _screenValue.Length;
         }
 
         public bool IsScreenEmpty()
