@@ -20,8 +20,8 @@ namespace Self_checkout.WpfApp.DAL
             this.Order = new HashSet<Order>();
         }
     
-        public int product_id { get; set; }
-        public Nullable<int> category_id { get; set; }
+        public long product_id { get; set; }
+        public int category_id { get; set; }
         public string product_name { get; set; }
         public decimal product_price { get; set; }
         public byte[] product_img { get; set; }

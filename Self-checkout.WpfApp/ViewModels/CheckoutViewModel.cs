@@ -2,6 +2,7 @@
 using Self_checkout.WpfApp.Models;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,8 @@ namespace Self_checkout.WpfApp.ViewModels
                 }
         }
 
-        private List<ProductModel> _listOfProducts = new List<ProductModel>();
-        public List<ProductModel> ListOfProducts
+        private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfProducts
         {
             get {  return _listOfProducts; }
             set { _listOfProducts = value;}

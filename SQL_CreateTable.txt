@@ -1,0 +1,33 @@
+CREATE DATABASE Store
+GO
+USE [Store]
+
+CREATE TABLE [Category] (
+  [category_id] int NOT NULL IDENTITY(1,1),
+  [category_name] varchar(20) NOT NULL,
+  PRIMARY KEY ([category_id])
+);
+
+CREATE TABLE [Product] (
+  [product_id] bigint NOT NULL IDENTITY(1,1),
+  [category_id] int NOT NULL,
+  [product_name] varchar(20) NOT NULL,
+  [product_price] decimal(19,4) NOT NULL,
+  [product_img] varbinary(max),
+  PRIMARY KEY ([product_id]),
+  CONSTRAINT [FK_Product.category_id]
+    FOREIGN KEY ([category_id])
+      REFERENCES [Category]([category_id])
+);
+
+CREATE TABLE [Order] (
+  [order_id] int NOT NULL IDENTITY(1,1),
+  [order_product_id] bigint NOT NULL,
+  [order_product_quantity] int NOT NULL,
+  [order_products_price] decimal(19,4) NOT NULL,
+  [order_time] datetime,
+  PRIMARY KEY ([order_id], [order_product_id]),
+  CONSTRAINT [FK_Order.order_product_id]
+    FOREIGN KEY ([order_product_id])
+      REFERENCES [Product]([product_id])
+);
