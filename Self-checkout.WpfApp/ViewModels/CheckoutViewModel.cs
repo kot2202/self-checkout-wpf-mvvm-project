@@ -1,4 +1,5 @@
 ﻿using Self_checkout.WpfApp.Commands;
+using Self_checkout.WpfApp.DAL; // TODO REMOVE WHEN DONE TESTING
 using Self_checkout.WpfApp.Models;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,12 @@ namespace Self_checkout.WpfApp.ViewModels
             }
         }
 
+        private ObservableCollection<ProductModel> _listOfFruits = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfFruits
+        {
+            get { return _listOfFruits; }
+            set { _listOfFruits = value; }
+        }
 
         private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
         public ObservableCollection<ProductModel> ListOfProducts
@@ -74,10 +81,12 @@ namespace Self_checkout.WpfApp.ViewModels
             PriceSum = price;
         }
 
-        public ICommand NavigatePostPurchaseCommand { get; set; }
-        public ICommand TogglePopupMenuCommand { get; set; }
+        // Items that need to update things need to be class type
+        public ICommand NavigatePostPurchaseCommand { get;}
+        public ICommand TogglePopupMenuCommand { get;}
+        public ICommand InsertItemFromPopupCommand { get; }
 
-        public AddNumberCommand AddNumberCommand { get; set; }
+        public AddNumberCommand AddNumberCommand { get;}
         public UndoNumberCommand UndoNumberCommand { get; }
         public ClearCommand ClearCommand { get; }
         public AddProductCommand AddProductCommand { get; }
@@ -86,10 +95,21 @@ namespace Self_checkout.WpfApp.ViewModels
         {
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
             TogglePopupMenuCommand = new TogglePopupMenuCommand(this);
+            InsertItemFromPopupCommand = new InsertItemFromPopupCommand(this);
+
             AddNumberCommand = new AddNumberCommand(this);
             UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
+
+            // TODO REMOVE WHEN DONE TESTING
+            using (var dbContext = new StoreEntities())
+            {
+                foreach(var product in dbContext.Product)
+                {
+                    ListOfFruits.Add(new ProductModel(product));
+                }
+            }
         }
 
         public bool IsScreenEmpty()

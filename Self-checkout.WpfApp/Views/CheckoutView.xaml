@@ -178,8 +178,6 @@
             </Grid>
             <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
         </Grid>
-        <userControls:PopupSelectionMenuControl d:Visibility="Collapsed">
-
-        </userControls:PopupSelectionMenuControl>
+        <userControls:PopupSelectionMenuControl d:Visibility="Collapsed"/>
     </Grid>
 </UserControl>

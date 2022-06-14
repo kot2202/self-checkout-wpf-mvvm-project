@@ -173,6 +173,7 @@
     <Compile Include="Commands\AddProductCommand.cs" />
     <Compile Include="Commands\ClearCommand.cs" />
     <Compile Include="Commands\CommandBase.cs" />
+    <Compile Include="Commands\InsertItemFromPopupCommand.cs" />
     <Compile Include="Commands\NavigateCommand.cs" />
     <Compile Include="Commands\TogglePopupMenuCommand.cs" />
     <Compile Include="Commands\UndoNumberCommand.cs" />

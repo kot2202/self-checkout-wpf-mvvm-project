@@ -7,11 +7,30 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640">
 
-    <Grid Background="#F27FFFD4" Visibility="{Binding IsPopupVisible}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Button Command="{Binding TogglePopupMenuCommand}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
-                <iconPacks1:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
-            </Button>
-        </Grid>
+    <Grid Visibility="{Binding IsPopupVisible}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+        <ListBox Background="#F27FFFD4" Grid.Column="1" ItemsSource="{Binding ListOfFruits}" Name="detailList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Width="90">
+                            <Image Width="80" Source="{Binding product_img}">
+                                <Image.InputBindings>
+                                    <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}"/>
+                                </Image.InputBindings>
+                            </Image>
+                            <TextBlock FontSize="11" Text="{Binding product_name}" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        <Button Command="{Binding TogglePopupMenuCommand}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
+            <iconPacks1:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
+        </Button>
     </Grid>
 </UserControl>
