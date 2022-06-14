@@ -7,8 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640">
 
-    <Grid Visibility="{Binding IsPopupVisible}" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <ListBox Background="#F27FFFD4" Grid.Column="1" ItemsSource="{Binding ListOfFruits}" Name="detailList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
                 <ListBox.ItemsPanel>
                     <ItemsPanelTemplate>

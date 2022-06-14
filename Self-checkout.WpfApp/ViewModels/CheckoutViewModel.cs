@@ -1,4 +1,4 @@
-﻿using Self_checkout.WpfApp.Commands.CheckoutView;
+using Self_checkout.WpfApp.Commands.CheckoutView;
 using Self_checkout.WpfApp.Commands.General;
 using Self_checkout.WpfApp.DAL; // TODO REMOVE WHEN DONE TESTING
 using Self_checkout.WpfApp.Models;
@@ -35,9 +35,9 @@ namespace Self_checkout.WpfApp.ViewModels
                 }
         }
 
-        private Visibility _isPopupVisible = Visibility.Collapsed;
+        private bool _isPopupVisible = false;
 
-        public Visibility IsPopupVisible
+        public bool IsPopupVisible
         {
             get { return _isPopupVisible; }
             set { _isPopupVisible = value;

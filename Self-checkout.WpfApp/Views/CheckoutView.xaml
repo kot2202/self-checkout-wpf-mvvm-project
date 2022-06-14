@@ -8,6 +8,9 @@
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    </UserControl.Resources>
     <UserControl.InputBindings>
         <KeyBinding Key="D1" Command="{Binding AddNumberCommand}" CommandParameter="1" />
         <KeyBinding Key="D2" Command="{Binding AddNumberCommand}" CommandParameter="2" />
@@ -178,6 +181,6 @@
             </Grid>
             <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
         </Grid>
-        <userControls:PopupSelectionMenuControl d:Visibility="Collapsed"/>
+        <userControls:PopupSelectionMenuControl Visibility="{Binding IsPopupVisible, Converter={StaticResource BoolToVisConverter}}" d:Visibility="Collapsed"/>
     </Grid>
 </UserControl>
