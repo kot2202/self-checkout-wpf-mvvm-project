@@ -19,8 +19,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
         }
         public override void Execute(object parameter)
         {
-            if (_viewModel.IsPopupVisible == Visibility.Collapsed) _viewModel.IsPopupVisible = Visibility.Visible;
-            else _viewModel.IsPopupVisible = Visibility.Collapsed;
+            _viewModel.IsPopupVisible = !_viewModel.IsPopupVisible;
         }
     }
 }
