@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
-             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:userControls="clr-namespace:Self_checkout.WpfApp.UserControls"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -24,150 +24,155 @@
         <KeyBinding Key="E" Command="{Binding AddProductCommand}" />
     </UserControl.InputBindings>
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-        <Grid Grid.Column="0" Margin="10,60">
+        <Grid>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition />
+                <ColumnDefinition />
+                <ColumnDefinition />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.View>
-                    <GridView>
-                        <GridViewColumn ctrl:ProportionalColumn.Width="1">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Image Source="{Binding product_img}" />
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn  Header="Nazwa" ctrl:ProportionalColumn.Width="3">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Ilość" ctrl:ProportionalColumn.Width="1">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding CalculatedQuantity}" HorizontalAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                        <GridViewColumn Header="Cena" ctrl:ProportionalColumn.Width="1">
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
-            <Button Content="Zatwierdź" Grid.Row="6" Margin="0,1,0,1" Grid.ColumnSpan="2"/>
-            <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Center" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Text="{Binding PriceSum}" d:Text="12345.00" Margin="1"/>
-        </Grid>
-        <Grid Grid.Column="1" Margin="0,60">
-            <Grid.RowDefinitions>
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-                <RowDefinition />
-            </Grid.RowDefinitions>
+            <Grid Grid.Column="0" Margin="10,60">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn ctrl:ProportionalColumn.Width="1">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Source="{Binding product_img}" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn  Header="Nazwa" ctrl:ProportionalColumn.Width="3">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Ilość" ctrl:ProportionalColumn.Width="1">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding CalculatedQuantity}" HorizontalAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Header="Cena" ctrl:ProportionalColumn.Width="1">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <Button Content="Zatwierdź" Grid.Row="6" Margin="0,1,0,1" Grid.ColumnSpan="2"/>
+                <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Center" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Text="{Binding PriceSum}" d:Text="12345.00" Margin="1"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="0,60">
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
 
-            <Button Style="{DynamicResource CategoryButton}" Grid.Row="0" Grid.RowSpan="4" Margin="30,0,30,1">
-                <iconPacks:PackIconMaterial Kind="FruitWatermelon" Height="auto" Width="auto" />
-            </Button>
+                <Button Style="{DynamicResource CategoryButton}" Command="{Binding TogglePopupMenuCommand}"  Grid.Row="0" Grid.RowSpan="4" Margin="30,0,30,1">
+                    <iconPacks:PackIconMaterial Kind="FruitWatermelon" Height="auto" Width="auto" />
+                </Button>
 
-            <Button Style="{DynamicResource CategoryButton}" Grid.Row="5" Grid.RowSpan="4"  Margin="30,1">
-                <iconPacks:PackIconFontAwesome Kind="CarrotSolid" Height="auto" Width="auto" />
-            </Button>
+                <Button Style="{DynamicResource CategoryButton}" Command="{Binding TogglePopupMenuCommand}"  Grid.Row="5" Grid.RowSpan="4"  Margin="30,1">
+                    <iconPacks:PackIconFontAwesome Kind="CarrotSolid" Height="auto" Width="auto" />
+                </Button>
 
-            <Button Style="{DynamicResource CategoryButton}" Grid.Row="10" Grid.RowSpan="4" Margin="30,1,30,1">
-                <iconPacks:PackIconMaterial Kind="Baguette" Height="auto" Width="auto"/>
-            </Button>
+                <Button Style="{DynamicResource CategoryButton}" Command="{Binding TogglePopupMenuCommand}" Grid.Row="10" Grid.RowSpan="4" Margin="30,1,30,1">
+                    <iconPacks:PackIconMaterial Kind="Baguette" Height="auto" Width="auto"/>
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2" Margin="10,60">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
+                <Button Command="{Binding UndoNumberCommand}" Grid.Row="2" Grid.Column="1" Margin="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <iconPacks:PackIconMicrons Kind="Undo" Height="auto" Width="auto"/>
+                    </Grid>
+                </Button>
+                <Button Command="{Binding ClearCommand}" Grid.Row="2" Grid.Column="2" Margin="1">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <iconPacks:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
+                    </Grid>
+                </Button>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Row="3"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" Grid.Row="3" Grid.Column="1"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" Grid.Row="3" Grid.Column="2"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" Grid.Row="4"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" Grid.Row="4" Grid.Column="1"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" Grid.Row="4" Grid.Column="2"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" Grid.Row="5"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Row="5" Grid.Column="1"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Row="5" Grid.Column="2"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Row="6"/>
+                <Button Style="{StaticResource InputButton}" Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
+                    <Grid Margin="10">
+                        <Viewbox MaxHeight="60">
+                            <TextBlock Text="Dodaj produkt "/>
+                        </Viewbox>
+                    </Grid>
+                </Button>
+            </Grid>
+            <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
         </Grid>
-        <Grid Grid.Column="2" Margin="10,60">
-            <Grid.RowDefinitions>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
-            <Button Command="{Binding UndoNumberCommand}" Grid.Row="2" Grid.Column="1" Margin="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <iconPacks:PackIconMicrons Kind="Undo" Height="auto" Width="auto"/>
-                </Grid>
-            </Button>
-            <Button Command="{Binding ClearCommand}" Grid.Row="2" Grid.Column="2" Margin="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="2*"/>
-                    </Grid.ColumnDefinitions>
-                    <iconPacks:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
-                </Grid>
-            </Button>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="7" Content="7" Grid.Row="3"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="8" Content="8" Grid.Row="3" Grid.Column="1"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="9" Content="9" Grid.Row="3" Grid.Column="2"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="4" Content="4" Grid.Row="4"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="5" Content="5" Grid.Row="4" Grid.Column="1"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="6" Content="6" Grid.Row="4" Grid.Column="2"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="1" Content="1" Grid.Row="5"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="2" Content="2" Grid.Row="5" Grid.Column="1"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="3" Content="3" Grid.Row="5" Grid.Column="2"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddNumberCommand}" CommandParameter="0" Content="0" Grid.Row="6"/>
-            <Button Style="{StaticResource InputButton}" Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="2">
-                <Grid Margin="10">
-                    <Viewbox MaxHeight="60">
-                        <TextBlock Text="Dodaj produkt "/>
-                    </Viewbox>
-                </Grid>
-            </Button>
-        </Grid>
-        <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
+        <userControls:PopupSelectionMenuControl d:Visibility="Collapsed">
+
+        </userControls:PopupSelectionMenuControl>
     </Grid>
 </UserControl>

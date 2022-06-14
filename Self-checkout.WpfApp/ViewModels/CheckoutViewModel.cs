@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace Self_checkout.WpfApp.ViewModels
@@ -31,6 +32,17 @@ namespace Self_checkout.WpfApp.ViewModels
                 AddProductCommand.OnCanExecuteChanged();
                 }
         }
+
+        private Visibility _isPopupVisible = Visibility.Collapsed;
+
+        public Visibility IsPopupVisible
+        {
+            get { return _isPopupVisible; }
+            set { _isPopupVisible = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         private decimal _priceSum = 0;
 
@@ -63,6 +75,7 @@ namespace Self_checkout.WpfApp.ViewModels
         }
 
         public ICommand NavigatePostPurchaseCommand { get; set; }
+        public ICommand TogglePopupMenuCommand { get; set; }
 
         public AddNumberCommand AddNumberCommand { get; set; }
         public UndoNumberCommand UndoNumberCommand { get; }
@@ -72,6 +85,7 @@ namespace Self_checkout.WpfApp.ViewModels
         public CheckoutViewModel(Stores.NavigationStore navigationStore)
         {
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
+            TogglePopupMenuCommand = new TogglePopupMenuCommand(this);
             AddNumberCommand = new AddNumberCommand(this);
             UndoNumberCommand = new UndoNumberCommand(this);
             ClearCommand = new ClearCommand(this);
