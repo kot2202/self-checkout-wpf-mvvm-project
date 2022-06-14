@@ -28,5 +28,6 @@ namespace Self_checkout.WpfApp.Models
         }
 
         public decimal CalculatedQuantity { get; set; }
+        public decimal PriceSum { get; set; }
     }
 }

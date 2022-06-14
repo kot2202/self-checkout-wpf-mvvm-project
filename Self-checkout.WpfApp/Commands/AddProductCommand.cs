@@ -43,6 +43,7 @@ namespace Self_checkout.WpfApp.Commands
                 _viewModel.ListOfProducts.Remove(productThatExists);
                 // TODO Add weight randomization for products that have it
                 productThatExists.CalculatedQuantity++;
+                productThatExists.PriceSum = productThatExists.CalculatedQuantity * productThatExists.product_price;
                 _viewModel.ListOfProducts.Add(productThatExists);
                 return true;
             }
@@ -53,6 +54,7 @@ namespace Self_checkout.WpfApp.Commands
                 if(product != null)
                 {
                     ProductModel productToAdd = new ProductModel(product);
+                    productToAdd.PriceSum = productToAdd.product_price;
                     _viewModel.ListOfProducts.Add(productToAdd);
                     return true;
                 }
