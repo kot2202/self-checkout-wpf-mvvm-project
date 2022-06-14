@@ -1,4 +1,5 @@
-﻿using Self_checkout.WpfApp.Commands;
+﻿using Self_checkout.WpfApp.Commands.CheckoutView;
+using Self_checkout.WpfApp.Commands.General;
 using Self_checkout.WpfApp.DAL; // TODO REMOVE WHEN DONE TESTING
 using Self_checkout.WpfApp.Models;
 using System;

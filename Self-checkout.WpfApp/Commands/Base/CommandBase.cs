@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Self_checkout.WpfApp.Commands
+namespace Self_checkout.WpfApp.Commands.Base
 {
     public abstract class CommandBase : ICommand
     {

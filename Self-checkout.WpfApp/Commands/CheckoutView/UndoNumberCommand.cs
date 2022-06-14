@@ -1,11 +1,12 @@
-﻿using Self_checkout.WpfApp.ViewModels;
+﻿using Self_checkout.WpfApp.Commands.Base;
+using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Self_checkout.WpfApp.Commands
+namespace Self_checkout.WpfApp.Commands.CheckoutView
 {
     public class UndoNumberCommand : CommandBase
     {

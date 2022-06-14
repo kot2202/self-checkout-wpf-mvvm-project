@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using Self_checkout.WpfApp.Commands;
+using Self_checkout.WpfApp.Commands.General;
 using Self_checkout.WpfApp.Stores;
 
 namespace Self_checkout.WpfApp.ViewModels

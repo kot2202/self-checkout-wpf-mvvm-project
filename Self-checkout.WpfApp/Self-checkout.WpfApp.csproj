@@ -169,14 +169,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Commands\AddNumberCommand.cs" />
-    <Compile Include="Commands\AddProductCommand.cs" />
-    <Compile Include="Commands\ClearCommand.cs" />
-    <Compile Include="Commands\CommandBase.cs" />
-    <Compile Include="Commands\InsertItemFromPopupCommand.cs" />
-    <Compile Include="Commands\NavigateCommand.cs" />
-    <Compile Include="Commands\TogglePopupMenuCommand.cs" />
-    <Compile Include="Commands\UndoNumberCommand.cs" />
+    <Compile Include="Commands\CheckoutView\AddNumberCommand.cs" />
+    <Compile Include="Commands\CheckoutView\AddProductCommand.cs" />
+    <Compile Include="Commands\CheckoutView\ClearCommand.cs" />
+    <Compile Include="Commands\Base\CommandBase.cs" />
+    <Compile Include="Commands\CheckoutView\InsertItemFromPopupCommand.cs" />
+    <Compile Include="Commands\Global\NavigateCommand.cs" />
+    <Compile Include="Commands\CheckoutView\TogglePopupMenuCommand.cs" />
+    <Compile Include="Commands\CheckoutView\UndoNumberCommand.cs" />
     <Compile Include="DAL\Category.cs">
       <DependentUpon>StoreDbModel.tt</DependentUpon>
     </Compile>

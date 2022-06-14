@@ -1,4 +1,5 @@
-﻿using Self_checkout.WpfApp.Stores;
+﻿using Self_checkout.WpfApp.Commands.Base;
+using Self_checkout.WpfApp.Stores;
 using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -7,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace Self_checkout.WpfApp.Commands
+namespace Self_checkout.WpfApp.Commands.General
 {
     internal class NavigateCommand<TViewModel> : CommandBase
         where TViewModel : ViewModelBase
