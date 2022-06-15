@@ -19,7 +19,6 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
             _viewModel = viewModel;
         }
 
-        // TODO Add if screenvalue empty can execute -> false
         public override void Execute(object parameter)
         {
             long.TryParse((string)parameter, out var productId);
@@ -34,12 +33,24 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
             else return false;
         }
 
+        // TODO Check for a better solution here
         private bool TryToAddProduct(long productCode)
+        {
+            if (TryToAddRepeatedProduct(productCode)) return true;
+            return TryToAddNewProduct(productCode);
+        }
+
+        /// <summary>
+        /// Tries to increase the quantity of product in order if it already exists.
+        /// </summary>
+        /// <param name="productCode">ID of product</param>
+        /// <returns>True if the product exists and false if it does not.</returns>
+        public bool TryToAddRepeatedProduct(long productCode)
         {
             ProductModel productThatExists = _viewModel.ListOfProducts.Where(x => x.product_id == productCode).SingleOrDefault();
             // Removes and re-adds the product to update the list of products
             // It makes sense to do so as it will place the updated product at the bottom
-            if(productThatExists != null)
+            if (productThatExists != null)
             {
                 _viewModel.ListOfProducts.Remove(productThatExists);
                 // TODO Add weight randomization for products that have it
@@ -48,18 +59,35 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                 _viewModel.ListOfProducts.Add(productThatExists);
                 return true;
             }
+            return false;
+        }
 
-            using(var dbContext = new StoreEntities())
+        /// <summary>
+        /// Tries to add new product to order
+        /// </summary>
+        /// <param name="productCode">ID of product</param>
+        /// <returns>True if product was succesfully added, False if not</returns>
+        public bool TryToAddNewProduct(long productCode)
+        {
+            try
             {
-                Product product = dbContext.Product.Where(x => x.product_id == productCode).SingleOrDefault(); // Db itself shouldn't let more products with same id appear
-                if(product != null)
+                using (var dbContext = new StoreEntities())
                 {
-                    ProductModel productToAdd = new ProductModel(product);
-                    productToAdd.PriceSum = productToAdd.product_price;
-                    _viewModel.ListOfProducts.Add(productToAdd);
-                    return true;
+                    Product product = dbContext.Product.Where(x => x.product_id == productCode).SingleOrDefault(); // Db itself shouldn't let more products with same id appear
+                    if (product != null)
+                    {
+                        ProductModel productToAdd = new ProductModel(product);
+                        productToAdd.PriceSum = productToAdd.product_price;
+                        _viewModel.ListOfProducts.Add(productToAdd);
+                        return true;
+                    }
+                    return false;
                 }
-                return false;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Problems with db");
+                throw new NotImplementedException(); // TODO add popup or some information about db problem
             }
         }
     }

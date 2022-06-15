@@ -1,4 +1,5 @@
 ﻿using Self_checkout.WpfApp.Commands.Base;
+using Self_checkout.WpfApp.Models;
 using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -17,9 +18,14 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
             _viewModel = viewmodel;
         }
 
+        // TODO Check for a better solution here
         public override void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            ProductModel productToAdd = parameter as ProductModel;
+            long productCode = productToAdd.product_id;
+
+            if (_viewModel.AddProductCommand.TryToAddRepeatedProduct(productCode)) return;
+            else _viewModel.AddProductCommand.TryToAddNewProduct(productCode);
         }
     }
 }
