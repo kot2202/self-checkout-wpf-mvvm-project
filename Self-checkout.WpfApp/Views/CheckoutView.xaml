@@ -24,7 +24,7 @@
         <KeyBinding Key="D0" Command="{Binding AddNumberCommand}" CommandParameter="0" />
         <KeyBinding Key="Backspace" Command="{Binding ClearCommand}" />
         <!-- Needs key different than Enter or Space to prevent accidental button clicks -->
-        <KeyBinding Key="E" Command="{Binding AddProductCommand}" />
+        <KeyBinding Key="E" Command="{Binding AddProductCommand}" CommandParameter="{Binding Text, ElementName=inputTextBox}" />
     </UserControl.InputBindings>
     <Grid>
         <Grid>
