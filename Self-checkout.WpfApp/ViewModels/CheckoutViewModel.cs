@@ -147,23 +147,23 @@ namespace Self_checkout.WpfApp.ViewModels
                         || x.category_id == Properties.Settings.Default.DB_Bread_category_id
                         || x.category_id == Properties.Settings.Default.DB_Other_category_id
                     ).ToList();
+                    // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
+
                     App.Current.Dispatcher.Invoke((System.Action)delegate
                     {
                         foreach (var product in products)
                         {
-                            // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
-                        
-                                var productToAdd = new ProductModel(product);
+                            var productToAdd = new ProductModel(product);
 
-                                // TODO maybe add enums for better readability
-                                if (productToAdd.category_id == Properties.Settings.Default.DB_Fruits_category_id)
-                                    ListOfFruits.Add(productToAdd);
-                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Vegetables_category_id)
-                                    ListOfVegetables.Add(productToAdd);
-                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Bread_category_id)
-                                    ListOfBread.Add(productToAdd);
-                                else
-                                    ListOfOther.Add(productToAdd);
+                            // TODO maybe add enums for better readability
+                            if (productToAdd.category_id == Properties.Settings.Default.DB_Fruits_category_id)
+                                ListOfFruits.Add(productToAdd);
+                            else if (productToAdd.category_id == Properties.Settings.Default.DB_Vegetables_category_id)
+                                ListOfVegetables.Add(productToAdd);
+                            else if (productToAdd.category_id == Properties.Settings.Default.DB_Bread_category_id)
+                                ListOfBread.Add(productToAdd);
+                            else
+                                ListOfOther.Add(productToAdd);
                         }
                     });
                 }
