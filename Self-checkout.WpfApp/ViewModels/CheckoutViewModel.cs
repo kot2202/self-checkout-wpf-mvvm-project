@@ -104,13 +104,27 @@ namespace Self_checkout.WpfApp.ViewModels
             AddProductCommand = new AddProductCommand(this);
 
             // TODO REMOVE WHEN DONE TESTING
-            using (var dbContext = new StoreEntities())
+            // Could be done only once on app starting but it depends on how often prices may get updated.
+            LoadPopupProducts();
+        }
+
+        public async void LoadPopupProducts()
+        {
+            await Task.Factory.StartNew(() =>
             {
-                foreach(var product in dbContext.Product)
+                using (var dbContext = new StoreEntities())
                 {
-                    ListOfFruits.Add(new ProductModel(product));
+                    var products = dbContext.Product.Where(x => x.category_id == Properties.Settings.Default.DB_Fruits_category_id).ToList();
+                    foreach (var product in products)
+                    {
+                        // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
+                        App.Current.Dispatcher.Invoke((System.Action)delegate
+                        {
+                            ListOfFruits.Add(new ProductModel(product));
+                        });
+                    }
                 }
-            }
+            });
         }
 
         public bool IsScreenEmpty()
