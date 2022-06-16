@@ -52,6 +52,8 @@
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                            <Setter Property="BorderBrush" Value="Black"/>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.View>
@@ -66,7 +68,7 @@
                             <GridViewColumn  Header="Nazwa" ctrl:ProportionalColumn.Width="2">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding product_name}" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding product_name}" TextWrapping="Wrap" HorizontalAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
