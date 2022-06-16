@@ -19,6 +19,11 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
         }
         public override void Execute(object parameter)
         {
+            if (parameter != null)
+            {
+                Int32.TryParse((string)parameter, out int indexToSet);
+                _viewModel.PopupMenuSelectedIndex = indexToSet;
+            }
             _viewModel.IsPopupVisible = !_viewModel.IsPopupVisible;
         }
     }
