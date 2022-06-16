@@ -24,8 +24,11 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
             ProductModel productToAdd = parameter as ProductModel;
             long productCode = productToAdd.product_id;
 
-            if (_viewModel.AddProductCommand.TryToAddRepeatedProduct(productCode)) return;
+            if (_viewModel.AddProductCommand.TryToAddRepeatedProduct(productCode)) { }
             else _viewModel.AddProductCommand.TryToAddNewProduct(productCode);
+            // TODO add quantity select for non weighted products
+            _viewModel.TogglePopupMenuCommand.Execute(null);
+
         }
     }
 }
