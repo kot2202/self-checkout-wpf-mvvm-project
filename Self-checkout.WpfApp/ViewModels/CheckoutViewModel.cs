@@ -45,6 +45,14 @@ namespace Self_checkout.WpfApp.ViewModels
             }
         }
 
+        private int _popupMenuSelectedIndex = 0;
+
+        public int PopupMenuSelectedIndex
+        {
+            get { return _popupMenuSelectedIndex; }
+            set { _popupMenuSelectedIndex = value; OnPropertyChanged(); }
+        }
+
 
         private decimal _priceSum = 0;
 
@@ -63,6 +71,24 @@ namespace Self_checkout.WpfApp.ViewModels
         {
             get { return _listOfFruits; }
             set { _listOfFruits = value; }
+        }
+        private ObservableCollection<ProductModel> _listOfVegetables = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfVegetables
+        {
+            get { return _listOfVegetables; }
+            set { _listOfVegetables = value; }
+        }
+        private ObservableCollection<ProductModel> _listOfBread = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfBread
+        {
+            get { return _listOfBread; }
+            set { _listOfBread = value; }
+        }
+        private ObservableCollection<ProductModel> _listOfOther = new ObservableCollection<ProductModel>();
+        public ObservableCollection<ProductModel> ListOfOther
+        {
+            get { return _listOfOther; }
+            set { _listOfOther = value; }
         }
 
         private ObservableCollection<ProductModel> _listOfProducts = new ObservableCollection<ProductModel>();
@@ -86,6 +112,7 @@ namespace Self_checkout.WpfApp.ViewModels
         public ICommand NavigatePostPurchaseCommand { get;}
         public ICommand TogglePopupMenuCommand { get;}
         public ICommand InsertItemFromPopupCommand { get; }
+        public ICommand SetPopupSelectedIndexCommand { get; }
 
         public AddNumberCommand AddNumberCommand { get;}
         public UndoNumberCommand UndoNumberCommand { get; }
@@ -97,6 +124,7 @@ namespace Self_checkout.WpfApp.ViewModels
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
             TogglePopupMenuCommand = new TogglePopupMenuCommand(this);
             InsertItemFromPopupCommand = new InsertItemFromPopupCommand(this);
+            SetPopupSelectedIndexCommand = new SetPopupSelectedIndexCommand(this);
 
             AddNumberCommand = new AddNumberCommand(this);
             UndoNumberCommand = new UndoNumberCommand(this);
@@ -114,15 +142,31 @@ namespace Self_checkout.WpfApp.ViewModels
             {
                 using (var dbContext = new StoreEntities())
                 {
-                    var products = dbContext.Product.Where(x => x.category_id == Properties.Settings.Default.DB_Fruits_category_id).ToList();
-                    foreach (var product in products)
+                    var products = dbContext.Product.Where(
+                        x => x.category_id == Properties.Settings.Default.DB_Fruits_category_id
+                        || x.category_id == Properties.Settings.Default.DB_Vegetables_category_id
+                        || x.category_id == Properties.Settings.Default.DB_Bread_category_id
+                        || x.category_id == Properties.Settings.Default.DB_Other_category_id
+                    ).ToList();
+                    App.Current.Dispatcher.Invoke((System.Action)delegate
                     {
-                        // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
-                        App.Current.Dispatcher.Invoke((System.Action)delegate
+                        foreach (var product in products)
                         {
-                            ListOfFruits.Add(new ProductModel(product));
-                        });
-                    }
+                            // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
+                        
+                                var productToAdd = new ProductModel(product);
+
+                                // TODO maybe add enums for better readability
+                                if (productToAdd.category_id == Properties.Settings.Default.DB_Fruits_category_id)
+                                    ListOfFruits.Add(productToAdd);
+                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Vegetables_category_id)
+                                    ListOfVegetables.Add(productToAdd);
+                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Bread_category_id)
+                                    ListOfBread.Add(productToAdd);
+                                else
+                                    ListOfOther.Add(productToAdd);
+                        }
+                    });
                 }
             });
         }

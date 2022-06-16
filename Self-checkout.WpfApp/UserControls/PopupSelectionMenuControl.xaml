@@ -26,12 +26,12 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <RadioButton Content="Owoce" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="0"/>
-        <RadioButton Content="Warzywa" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="1"/>
-        <RadioButton Content="Pieczywo"  Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="2"/>
-        <RadioButton Content="Inne" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="3"/>
-        <TabControl Padding="0,-2,0,0" Margin="0" Grid.ColumnSpan="6" Grid.RowSpan="7" Grid.Row="1" BorderThickness="0">
-            <TabItem Visibility="Collapsed" Height="30" BorderThickness="0" Margin="0" Padding="0">
+        <RadioButton IsChecked="True" Content="Owoce" Command="{Binding SetPopupSelectedIndexCommand}" CommandParameter="0" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="0"/>
+        <RadioButton Content="Warzywa" Command="{Binding SetPopupSelectedIndexCommand}" CommandParameter="1" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="1"/>
+        <RadioButton Content="Pieczywo" Command="{Binding SetPopupSelectedIndexCommand}" CommandParameter="2" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="2"/>
+        <RadioButton Content="Inne" Command="{Binding SetPopupSelectedIndexCommand}" CommandParameter="3" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="3"/>
+        <TabControl SelectedIndex="{Binding PopupMenuSelectedIndex}" d:SelectedIndex="1" Padding="0,-2,0,0" Margin="0" Grid.ColumnSpan="6" Grid.RowSpan="7" Grid.Row="1" BorderThickness="0">
+            <TabItem Visibility="Collapsed">
                 <Grid>
                     <ListBox ItemsSource="{Binding ListOfFruits}" Background="#F267CEAC" BorderThickness="0">
                         <ListBox.ItemsPanel>
@@ -39,7 +39,6 @@
                                 <WrapPanel Orientation="Horizontal"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Vertical" Width="90">
@@ -52,7 +51,72 @@
                             </DataTemplate>
                         </ListBox.ItemTemplate>
                     </ListBox>
-
+                </Grid>
+            </TabItem>
+            <TabItem Visibility="Collapsed">
+                <Grid>
+                    <ListBox ItemsSource="{Binding ListOfVegetables}" Background="#F267CEAC" BorderThickness="0">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Width="90">
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding Path=.}"/>
+                                    </StackPanel.InputBindings>
+                                    <Image Width="80" Source="{Binding product_img}"/>
+                                    <TextBlock FontSize="15" Text="{Binding product_name}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Visibility="Collapsed">
+                <Grid>
+                    <ListBox ItemsSource="{Binding ListOfBread}" Background="#F267CEAC" BorderThickness="0">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Width="90">
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding Path=.}"/>
+                                    </StackPanel.InputBindings>
+                                    <Image Width="80" Source="{Binding product_img}"/>
+                                    <TextBlock FontSize="15" Text="{Binding product_name}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+                </Grid>
+            </TabItem>
+            <TabItem Visibility="Collapsed">
+                <Grid>
+                    <ListBox ItemsSource="{Binding ListOfOther}" Background="#F267CEAC" BorderThickness="0">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Width="90">
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding Path=.}"/>
+                                    </StackPanel.InputBindings>
+                                    <Image Width="80" Source="{Binding product_img}"/>
+                                    <TextBlock FontSize="15" Text="{Binding product_name}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
                 </Grid>
             </TabItem>
         </TabControl>
