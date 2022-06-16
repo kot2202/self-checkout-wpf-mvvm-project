@@ -131,7 +131,6 @@ namespace Self_checkout.WpfApp.ViewModels
             ClearCommand = new ClearCommand(this);
             AddProductCommand = new AddProductCommand(this);
 
-            // TODO REMOVE WHEN DONE TESTING
             // Could be done only once on app starting but it depends on how often prices may get updated.
             LoadPopupProducts();
         }
