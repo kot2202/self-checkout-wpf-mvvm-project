@@ -3,7 +3,16 @@
   <Profiles />
   <Settings>
     <Setting Name="DB_Fruits_category_id" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">1</Value>
+    </Setting>
+    <Setting Name="DB_Vegetables_category_id" Type="System.Int32" Scope="Application">
       <Value Profile="(Default)">2</Value>
+    </Setting>
+    <Setting Name="DB_Bread_category_id" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">3</Value>
+    </Setting>
+    <Setting Name="DB_Other_category_id" Type="System.Int32" Scope="Application">
+      <Value Profile="(Default)">4</Value>
     </Setting>
   </Settings>
 </SettingsFile>
