@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
@@ -21,9 +22,19 @@ namespace Self_checkout.WpfApp.Commands.General
             _navigationStore = navigationStore;
             _createViewModel = createViewModel;
         }
-        public override void Execute(object parameter)
+        public override async void Execute(object parameter)
         {
-            _navigationStore.CurrentViewModel = _createViewModel();
+            int time = 0;
+            if (parameter != null)
+            {
+                Int32.TryParse((string)parameter, out time);
+            }
+            await Task.Factory.StartNew(() =>
+            { 
+                Thread.Sleep(time);
+                _navigationStore.CurrentViewModel = _createViewModel();
+            });
         }
+
     }
 }

@@ -1,4 +1,5 @@
-﻿using Self_checkout.WpfApp.Stores;
+﻿using Self_checkout.WpfApp.Commands.General;
+using Self_checkout.WpfApp.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,7 @@ namespace Self_checkout.WpfApp.ViewModels
 
         public PostPurchaseViewModel(NavigationStore navigationStore)
         {
-            // TODO May need edit if want to go back to welcome screen.
+            NavigateWelcomeCommand = new NavigateCommand<WelcomeViewModel>(navigationStore, () => new WelcomeViewModel(navigationStore));
         }
     }
 }
