@@ -7,27 +7,57 @@
              mc:Ignorable="d" 
              d:DesignHeight="480" d:DesignWidth="640">
 
-    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-        <ListBox Background="#F27FFFD4" Grid.Column="1" ItemsSource="{Binding ListOfFruits}" Name="detailList" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-            <ListBox.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"/>
-                </ItemsPanelTemplate>
-            </ListBox.ItemsPanel>
+    <Grid Background="Aquamarine">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <RadioButton Content="Owoce" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="0"/>
+        <RadioButton Content="Warzywa" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="1"/>
+        <RadioButton Content="Pieczywo"  Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="2"/>
+        <RadioButton Content="Inne" Style="{StaticResource {x:Type ToggleButton}}" Grid.Column="3"/>
+        <TabControl Padding="0,-2,0,0" Margin="0" Grid.ColumnSpan="6" Grid.RowSpan="7" Grid.Row="1" BorderThickness="0">
+            <TabItem Visibility="Collapsed" Height="30" BorderThickness="0" Margin="0" Padding="0">
+                <Grid>
+                    <ListBox ItemsSource="{Binding ListOfFruits}" Background="#F267CEAC" BorderThickness="0">
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel Orientation="Horizontal"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
 
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel Orientation="Vertical" Width="90">
-                        <StackPanel.InputBindings>
-                            <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding Path=.}"/>
-                        </StackPanel.InputBindings>
-                        <Image Width="80" Source="{Binding product_img}"/>
-                        <TextBlock FontSize="11" Text="{Binding product_name}" VerticalAlignment="Center"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
-        <Button Command="{Binding TogglePopupMenuCommand}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Vertical" Width="90">
+                                    <StackPanel.InputBindings>
+                                        <MouseBinding Gesture="LeftClick" Command="{Binding DataContext.InsertItemFromPopupCommand, RelativeSource={RelativeSource AncestorType=ListBox}}" CommandParameter="{Binding Path=.}"/>
+                                    </StackPanel.InputBindings>
+                                    <Image Width="80" Source="{Binding product_img}"/>
+                                    <TextBlock FontSize="15" Text="{Binding product_name}" VerticalAlignment="Center" HorizontalAlignment="Center" TextWrapping="Wrap"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        
+        <Button Command="{Binding TogglePopupMenuCommand}" Width="60" Height="60" HorizontalAlignment="Right" VerticalAlignment="Top" Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="5">
             <iconPacks1:PackIconMicrons Kind="CrossInline" Height="auto" Width="auto"/>
         </Button>
     </Grid>
