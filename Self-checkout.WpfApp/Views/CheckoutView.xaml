@@ -181,7 +181,6 @@
                     </Grid>
                 </Button>
             </Grid>
-            <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
         </Grid>
         <userControls:PopupSelectionMenuControl Visibility="{Binding IsPopupVisible, Converter={StaticResource BoolToVisConverter}}" d:Visibility="Collapsed"/>
     </Grid>
