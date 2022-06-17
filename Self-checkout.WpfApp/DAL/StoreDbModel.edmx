@@ -17,9 +17,9 @@
             <PropertyRef Name="order_id" />
             <PropertyRef Name="order_product_id" />
           </Key>
-          <Property Name="order_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="order_id" Type="int" Nullable="false" />
           <Property Name="order_product_id" Type="bigint" Nullable="false" />
-          <Property Name="order_product_quantity" Type="int" Nullable="false" />
+          <Property Name="order_product_quantity" Type="decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="order_products_price" Type="decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="order_time" Type="datetime" />
         </EntityType>
@@ -88,9 +88,9 @@
             <PropertyRef Name="order_id" />
             <PropertyRef Name="order_product_id" />
           </Key>
-          <Property Name="order_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="order_id" Type="Int32" Nullable="false" />
           <Property Name="order_product_id" Type="Int64" Nullable="false" />
-          <Property Name="order_product_quantity" Type="Int32" Nullable="false" />
+          <Property Name="order_product_quantity" Type="Decimal" Precision="6" Scale="2" Nullable="false" />
           <Property Name="order_products_price" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="order_time" Type="DateTime" Precision="3" />
           <NavigationProperty Name="Product" Relationship="Self.FK_Order_order_product_id" FromRole="Order" ToRole="Product" />

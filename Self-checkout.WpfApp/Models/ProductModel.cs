@@ -12,6 +12,8 @@ namespace Self_checkout.WpfApp.Models
 {
     public class ProductModel : Product
     {
+        public decimal CalculatedQuantity { get; set; }
+        public decimal PriceSum { get; set; }
         public ProductModel(Product productToCopyFrom)
         {
             product_img = productToCopyFrom.product_img;
@@ -27,7 +29,5 @@ namespace Self_checkout.WpfApp.Models
             CalculatedQuantity = 1;
         }
 
-        public decimal CalculatedQuantity { get; set; }
-        public decimal PriceSum { get; set; }
     }
 }

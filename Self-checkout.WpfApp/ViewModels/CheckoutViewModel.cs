@@ -113,6 +113,7 @@ namespace Self_checkout.WpfApp.ViewModels
         public ICommand TogglePopupMenuCommand { get;}
         public ICommand InsertItemFromPopupCommand { get; }
         public ICommand SetPopupSelectedIndexCommand { get; }
+        public ICommand FinalizeOrderCommand { get; }
 
         public AddNumberCommand AddNumberCommand { get;}
         public UndoNumberCommand UndoNumberCommand { get; }
@@ -125,6 +126,7 @@ namespace Self_checkout.WpfApp.ViewModels
             TogglePopupMenuCommand = new TogglePopupMenuCommand(this);
             InsertItemFromPopupCommand = new InsertItemFromPopupCommand(this);
             SetPopupSelectedIndexCommand = new SetPopupSelectedIndexCommand(this);
+            FinalizeOrderCommand = new FinalizeOrderCommand(this);
 
             AddNumberCommand = new AddNumberCommand(this);
             UndoNumberCommand = new UndoNumberCommand(this);

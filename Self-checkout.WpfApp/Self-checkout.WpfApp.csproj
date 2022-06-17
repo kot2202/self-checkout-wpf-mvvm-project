@@ -176,6 +176,7 @@
     <Compile Include="Commands\CheckoutView\AddProductCommand.cs" />
     <Compile Include="Commands\CheckoutView\ClearCommand.cs" />
     <Compile Include="Commands\Base\CommandBase.cs" />
+    <Compile Include="Commands\CheckoutView\FinalizeOrderCommand.cs" />
     <Compile Include="Commands\CheckoutView\InsertItemFromPopupCommand.cs" />
     <Compile Include="Commands\CheckoutView\SetPopupSelectedIndexCommand.cs" />
     <Compile Include="Commands\Global\NavigateCommand.cs" />
