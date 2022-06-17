@@ -207,6 +207,7 @@
       <DependentUpon>StoreDbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="PLACEHOLDER\RandomWeightGenerator.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="UserControls\PopupSelectionMenuControl.xaml.cs">
       <DependentUpon>PopupSelectionMenuControl.xaml</DependentUpon>

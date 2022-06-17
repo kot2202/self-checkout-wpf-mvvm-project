@@ -1,6 +1,7 @@
 ﻿using Self_checkout.WpfApp.Commands.Base;
 using Self_checkout.WpfApp.DAL;
 using Self_checkout.WpfApp.Models;
+using Self_checkout.WpfApp.PLACEHOLDER;
 using Self_checkout.WpfApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -53,8 +54,15 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
             if (productThatExists != null)
             {
                 _viewModel.ListOfProducts.Remove(productThatExists);
-                // TODO Add weight randomization for products that have it
-                productThatExists.CalculatedQuantity++;
+                
+                // TODO REMOVE IF NEEDED
+                // PLACEHOLDER weight randomization for weighted categories
+                if(Properties.Settings.Default.DB_Weighted_products_category_ids.Contains(productThatExists.category_id))
+                {
+                    productThatExists.CalculatedQuantity += RandomWeightGenerator.Random();
+                }
+                else productThatExists.CalculatedQuantity++;
+
                 productThatExists.PriceSum = productThatExists.CalculatedQuantity * productThatExists.product_price;
                 _viewModel.ListOfProducts.Add(productThatExists);
                 return true;
@@ -77,7 +85,18 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                     if (product != null)
                     {
                         ProductModel productToAdd = new ProductModel(product);
-                        productToAdd.PriceSum = productToAdd.product_price;
+
+                        // TODO REMOVE IF NEEDED
+                        // PLACEHOLDER weight randomization for weighted categories
+                        if (Properties.Settings.Default.DB_Weighted_products_category_ids.Contains(productToAdd.category_id))
+                        {
+                            productToAdd.CalculatedQuantity += RandomWeightGenerator.Random();
+                        }
+                        productToAdd.PriceSum = decimal.Round(productToAdd.product_price,2,MidpointRounding.AwayFromZero);
+                        
+                        //productToAdd.PriceSum = productToAdd.product_price;
+
+
                         _viewModel.ListOfProducts.Add(productToAdd);
                         return true;
                     }

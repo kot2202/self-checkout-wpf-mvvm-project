@@ -26,7 +26,7 @@ namespace Self_checkout.WpfApp.Models
             category_id = productToCopyFrom.category_id;
             product_name = productToCopyFrom.product_name;
             product_price = decimal.Round(productToCopyFrom.product_price,2,MidpointRounding.AwayFromZero);
-            CalculatedQuantity = 1;
+            CalculatedQuantity = decimal.Round(1.00m,2,MidpointRounding.AwayFromZero);
         }
 
     }
