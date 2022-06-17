@@ -28,6 +28,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                     // If any order exists then +1 the ID, if it does not then return 1
                     int newOrderId = dbContext.Order.Max(x => (int?)x.order_id) + 1 ?? 1;
 
+                    DateTime currentTime = DateTime.Now;
                     foreach (ProductModel purchasedProduct in _viewmodel.ListOfProducts)
                     {
                         Order orderProduct = new Order()
@@ -36,7 +37,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                             order_product_id = purchasedProduct.product_id,
                             order_product_quantity = purchasedProduct.CalculatedQuantity,
                             order_products_price = purchasedProduct.product_price,
-                            order_time = DateTime.Now
+                            order_time = currentTime
                         };
                         dbContext.Order.Add(orderProduct);
                     }
