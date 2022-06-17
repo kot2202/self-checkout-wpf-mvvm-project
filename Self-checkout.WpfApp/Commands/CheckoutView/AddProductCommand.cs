@@ -92,7 +92,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                         {
                             productToAdd.CalculatedQuantity += RandomWeightGenerator.Random();
                         }
-                        productToAdd.PriceSum = decimal.Round(productToAdd.product_price,2,MidpointRounding.AwayFromZero);
+                        productToAdd.PriceSum = decimal.Round(productToAdd.CalculatedQuantity * productToAdd.product_price,2,MidpointRounding.AwayFromZero);
                         
                         //productToAdd.PriceSum = productToAdd.product_price;
 
