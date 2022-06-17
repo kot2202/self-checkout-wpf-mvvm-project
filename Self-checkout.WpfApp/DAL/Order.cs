@@ -16,7 +16,7 @@ namespace Self_checkout.WpfApp.DAL
     {
         public int order_id { get; set; }
         public long order_product_id { get; set; }
-        public int order_product_quantity { get; set; }
+        public decimal order_product_quantity { get; set; }
         public decimal order_products_price { get; set; }
         public Nullable<System.DateTime> order_time { get; set; }
     

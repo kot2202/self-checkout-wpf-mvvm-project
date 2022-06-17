@@ -21,9 +21,9 @@ CREATE TABLE [Product] (
 );
 
 CREATE TABLE [Order] (
-  [order_id] int NOT NULL IDENTITY(1,1),
+  [order_id] int NOT NULL,
   [order_product_id] bigint NOT NULL,
-  [order_product_quantity] int NOT NULL,
+  [order_product_quantity] decimal(6,2) NOT NULL,
   [order_products_price] decimal(19,4) NOT NULL,
   [order_time] datetime,
   PRIMARY KEY ([order_id], [order_product_id]),

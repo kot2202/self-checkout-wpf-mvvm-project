@@ -176,6 +176,7 @@
     <Compile Include="Commands\CheckoutView\AddProductCommand.cs" />
     <Compile Include="Commands\CheckoutView\ClearCommand.cs" />
     <Compile Include="Commands\Base\CommandBase.cs" />
+    <Compile Include="Commands\CheckoutView\FinalizeOrderCommand.cs" />
     <Compile Include="Commands\CheckoutView\InsertItemFromPopupCommand.cs" />
     <Compile Include="Commands\CheckoutView\SetPopupSelectedIndexCommand.cs" />
     <Compile Include="Commands\Global\NavigateCommand.cs" />
@@ -206,6 +207,7 @@
       <DependentUpon>StoreDbModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductModel.cs" />
+    <Compile Include="PLACEHOLDER\RandomWeightGenerator.cs" />
     <Compile Include="Stores\NavigationStore.cs" />
     <Compile Include="UserControls\PopupSelectionMenuControl.xaml.cs">
       <DependentUpon>PopupSelectionMenuControl.xaml</DependentUpon>

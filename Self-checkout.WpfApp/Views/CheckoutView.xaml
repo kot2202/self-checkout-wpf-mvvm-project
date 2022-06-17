@@ -75,29 +75,29 @@
                             <GridViewColumn Header="Ilość" ctrl:ProportionalColumn.Width="1">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding CalculatedQuantity}" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="{Binding CalculatedQuantity, StringFormat=N2}" HorizontalAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header="Cena" ctrl:ProportionalColumn.Width="1">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding product_price}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding product_price, StringFormat=N2}" HorizontalAlignment="Center" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                             <GridViewColumn Header="Suma" ctrl:ProportionalColumn.Width="1">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding PriceSum}" HorizontalAlignment="Center" TextAlignment="Center"/>
+                                        <TextBlock Text="{Binding PriceSum, StringFormat=N2}" HorizontalAlignment="Center" TextAlignment="Center"/>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
-                <Button Content="Zatwierdź" Grid.Row="6" Margin="0,1,0,1" Grid.ColumnSpan="2"/>
-                <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Center" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Text="{Binding PriceSum}" d:Text="12345.00" Margin="1"/>
+                <Button Content="Dokonaj zakupu" Command="{Binding FinalizeOrderCommand}" Grid.Row="6" Margin="0,1,0,1" Grid.ColumnSpan="2"/>
+                <TextBox VerticalAlignment="Stretch" HorizontalAlignment="Stretch" VerticalContentAlignment="Center" TextAlignment="Center" Grid.Column="2" Grid.Row="6" TextWrapping="Wrap" Text="{Binding PriceSum, StringFormat=N2}" d:Text="12345.00" Margin="1"/>
             </Grid>
             <Grid Grid.Column="1" Margin="0,60">
                 <Grid.RowDefinitions>
@@ -181,7 +181,6 @@
                     </Grid>
                 </Button>
             </Grid>
-            <Button Content="Next screen" Command="{Binding NavigatePostPurchaseCommand}" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Grid.Column="2"/>
         </Grid>
         <userControls:PopupSelectionMenuControl Visibility="{Binding IsPopupVisible, Converter={StaticResource BoolToVisConverter}}" d:Visibility="Collapsed"/>
     </Grid>

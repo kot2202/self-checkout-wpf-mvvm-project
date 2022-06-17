@@ -12,6 +12,8 @@ namespace Self_checkout.WpfApp.Models
 {
     public class ProductModel : Product
     {
+        public decimal CalculatedQuantity { get; set; }
+        public decimal PriceSum { get; set; }
         public ProductModel(Product productToCopyFrom)
         {
             product_img = productToCopyFrom.product_img;
@@ -24,10 +26,8 @@ namespace Self_checkout.WpfApp.Models
             category_id = productToCopyFrom.category_id;
             product_name = productToCopyFrom.product_name;
             product_price = decimal.Round(productToCopyFrom.product_price,2,MidpointRounding.AwayFromZero);
-            CalculatedQuantity = 1;
+            CalculatedQuantity = decimal.Round(1.00m,2,MidpointRounding.AwayFromZero);
         }
 
-        public decimal CalculatedQuantity { get; set; }
-        public decimal PriceSum { get; set; }
     }
 }

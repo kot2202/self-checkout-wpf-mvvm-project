@@ -26,6 +26,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
 
             if (_viewModel.AddProductCommand.TryToAddRepeatedProduct(productCode)) { }
             else _viewModel.AddProductCommand.TryToAddNewProduct(productCode);
+            _viewModel.RecalculatePriceSum();
             // TODO add quantity select for non weighted products
             _viewModel.TogglePopupMenuCommand.Execute(null);
 
