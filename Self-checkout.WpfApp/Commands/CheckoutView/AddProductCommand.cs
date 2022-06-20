@@ -98,6 +98,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
 
 
                         _viewModel.ListOfProducts.Add(productToAdd);
+                        _viewModel.FinalizeOrderCommand.OnCanExecuteChanged(); // Doesn't have to be checked everytime but ability to remove products may be added in future
                         return true;
                     }
                     return false;

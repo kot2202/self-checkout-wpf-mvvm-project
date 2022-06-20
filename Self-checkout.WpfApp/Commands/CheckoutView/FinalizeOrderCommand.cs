@@ -54,8 +54,8 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
 
         public override bool CanExecute(object parameter)
         {
-            // TODO make it so empty order cannot be finalized
-            return true;
+            if (_viewmodel.ListOfProducts.Count > 0) return true;
+            else return false;
         }
     }
 }
