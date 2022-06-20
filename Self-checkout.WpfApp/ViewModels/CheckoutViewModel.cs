@@ -110,6 +110,7 @@ namespace Self_checkout.WpfApp.ViewModels
 
         // Items that need to update things need to be class type
         public ICommand NavigatePostPurchaseCommand { get;}
+        public ICommand NavigateWelcomeCommand { get; }
         public ICommand TogglePopupMenuCommand { get;}
         public ICommand InsertItemFromPopupCommand { get; }
         public ICommand SetPopupSelectedIndexCommand { get; }
@@ -123,6 +124,7 @@ namespace Self_checkout.WpfApp.ViewModels
         public CheckoutViewModel(Stores.NavigationStore navigationStore)
         {
             NavigatePostPurchaseCommand = new NavigateCommand<PostPurchaseViewModel>(navigationStore, () => new PostPurchaseViewModel(navigationStore));
+            NavigateWelcomeCommand = new NavigateCommand<WelcomeViewModel>(navigationStore, () => new WelcomeViewModel(navigationStore));
             TogglePopupMenuCommand = new TogglePopupMenuCommand(this);
             InsertItemFromPopupCommand = new InsertItemFromPopupCommand(this);
             SetPopupSelectedIndexCommand = new SetPopupSelectedIndexCommand(this);
