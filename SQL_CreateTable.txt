@@ -1,17 +1,18 @@
 CREATE DATABASE Store
+  COLLATE Polish_CI_AS
 GO
 USE [Store]
 
 CREATE TABLE [Category] (
   [category_id] int NOT NULL IDENTITY(1,1),
-  [category_name] varchar(20) NOT NULL,
+  [category_name] varchar(20) COLLATE Polish_CI_AS NOT NULL,
   PRIMARY KEY ([category_id])
 );
 
 CREATE TABLE [Product] (
   [product_id] bigint NOT NULL IDENTITY(1,1),
   [category_id] int NOT NULL,
-  [product_name] varchar(20) NOT NULL,
+  [product_name] varchar(20) COLLATE Polish_CI_AS NOT NULL,
   [product_price] decimal(19,4) NOT NULL,
   [product_img] varbinary(max),
   PRIMARY KEY ([product_id]),
