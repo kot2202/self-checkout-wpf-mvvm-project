@@ -306,6 +306,8 @@
       <DependentUpon>StoreDbModel.edmx</DependentUpon>
       <LastGenOutput>StoreDbModel.cs</LastGenOutput>
     </Content>
+    <Resource Include="Views\kasa3.png" />
+    <Resource Include="Config\kasa3.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

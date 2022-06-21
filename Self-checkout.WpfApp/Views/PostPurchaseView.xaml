@@ -12,8 +12,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Viewbox>
-            <TextBlock Text="Dziękujemy za zakupy&#10;Zapraszamy ponownie"  HorizontalAlignment="Center" VerticalAlignment="Center"/>
-        </Viewbox>
+        <Image Source="kasa3.png"></Image>
     </Grid>
 </UserControl>
