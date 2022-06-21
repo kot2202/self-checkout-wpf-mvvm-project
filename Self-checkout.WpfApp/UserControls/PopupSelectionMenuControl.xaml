@@ -35,7 +35,7 @@
         <TabControl Style="{StaticResource Style-TabControl-Main}" SelectedIndex="{Binding PopupMenuSelectedIndex}" d:SelectedIndex="1" Padding="0,-2,0,0" Margin="0" BorderThickness="0">
             <TabItem Style="{DynamicResource PopupTabItem}" Header="Owoce" Height="100">
                 <Grid Grid.Column="0" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-                    <ListBox ItemsSource="{Binding ListOfFruits}" Background="#F267CEAC" BorderThickness="0">
+                    <ListBox ItemsSource="{Binding ListOfFruits}" d:ItemsSource="{d:SampleData}" ItemContainerStyle="{DynamicResource PopupListBoxItem}" Background="#F267CEAC" BorderThickness="0">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal"/>
@@ -57,7 +57,7 @@
             </TabItem>
             <TabItem Style="{DynamicResource PopupTabItem}" Header="Warzywa" Height="100">
                 <Grid>
-                    <ListBox ItemsSource="{Binding ListOfVegetables}" Background="#F267CEAC" BorderThickness="0">
+                    <ListBox ItemsSource="{Binding ListOfVegetables}" ItemContainerStyle="{DynamicResource PopupListBoxItem}" Background="#F267CEAC" BorderThickness="0">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal"/>
@@ -79,7 +79,7 @@
             </TabItem>
             <TabItem Style="{DynamicResource PopupTabItem}" Header="Pieczywo" Height="100">
                 <Grid>
-                    <ListBox ItemsSource="{Binding ListOfBread}" Background="#F267CEAC" BorderThickness="0">
+                    <ListBox ItemsSource="{Binding ListOfBread}" ItemContainerStyle="{DynamicResource PopupListBoxItem}" Background="#F267CEAC" BorderThickness="0">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal"/>
@@ -101,7 +101,7 @@
             </TabItem>
             <TabItem Style="{DynamicResource PopupTabItem}" Header="Inne" Height="100">
                 <Grid>
-                    <ListBox ItemsSource="{Binding ListOfOther}" Background="#F267CEAC" BorderThickness="0">
+                    <ListBox ItemsSource="{Binding ListOfOther}" ItemContainerStyle="{DynamicResource PopupListBoxItem}" Background="#F267CEAC" BorderThickness="0">
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <WrapPanel Orientation="Horizontal"/>

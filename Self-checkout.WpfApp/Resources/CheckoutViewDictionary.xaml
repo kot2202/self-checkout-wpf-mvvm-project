@@ -210,4 +210,7 @@
         </Setter>
     </Style>
     <!--#endregion-->
+    <Style x:Key="PopupListBoxItem" TargetType="{x:Type ListBoxItem}">
+
+    </Style>
 </ResourceDictionary>
