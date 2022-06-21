@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MahApps.Metro.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -18,7 +19,7 @@ namespace Self_checkout.WpfApp
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         public MainWindow()
         {
@@ -32,6 +33,8 @@ namespace Self_checkout.WpfApp
 #if DEBUG
             ResizeMode = ResizeMode.CanResizeWithGrip;
 #else
+            ShowTitleBar = false;
+            IgnoreTaskbarOnMaximize = true;
             WindowStyle = WindowStyle.None;
             WindowState = WindowState.Maximized;
             ResizeMode = ResizeMode.NoResize;
