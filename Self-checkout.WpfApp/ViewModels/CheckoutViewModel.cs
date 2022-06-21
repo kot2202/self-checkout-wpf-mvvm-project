@@ -143,33 +143,41 @@ namespace Self_checkout.WpfApp.ViewModels
         {
             await Task.Factory.StartNew(() =>
             {
-                using (var dbContext = new StoreEntities())
+                try
                 {
-                    var products = dbContext.Product.Where(
-                        x => x.category_id == Properties.Settings.Default.DB_Fruits_category_id
-                        || x.category_id == Properties.Settings.Default.DB_Vegetables_category_id
-                        || x.category_id == Properties.Settings.Default.DB_Bread_category_id
-                        || x.category_id == Properties.Settings.Default.DB_Other_category_id
-                    ).ToList();
-                    // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
-
-                    App.Current.Dispatcher.Invoke((System.Action)delegate
+                    using (var dbContext = new StoreEntities())
                     {
-                        foreach (var product in products)
-                        {
-                            var productToAdd = new ProductModel(product);
+                        var products = dbContext.Product.Where(
+                            x => x.category_id == Properties.Settings.Default.DB_Fruits_category_id
+                            || x.category_id == Properties.Settings.Default.DB_Vegetables_category_id
+                            || x.category_id == Properties.Settings.Default.DB_Bread_category_id
+                            || x.category_id == Properties.Settings.Default.DB_Other_category_id
+                        ).ToList();
+                        // https://stackoverflow.com/questions/18331723/this-type-of-collectionview-does-not-support-changes-to-its-sourcecollection-fro
 
-                            // TODO maybe add enums for better readability
-                            if (productToAdd.category_id == Properties.Settings.Default.DB_Fruits_category_id)
-                                ListOfFruits.Add(productToAdd);
-                            else if (productToAdd.category_id == Properties.Settings.Default.DB_Vegetables_category_id)
-                                ListOfVegetables.Add(productToAdd);
-                            else if (productToAdd.category_id == Properties.Settings.Default.DB_Bread_category_id)
-                                ListOfBread.Add(productToAdd);
-                            else
-                                ListOfOther.Add(productToAdd);
-                        }
-                    });
+                        App.Current.Dispatcher.Invoke((System.Action)delegate
+                        {
+                            foreach (var product in products)
+                            {
+                                var productToAdd = new ProductModel(product);
+
+                                // TODO maybe add enums for better readability
+                                if (productToAdd.category_id == Properties.Settings.Default.DB_Fruits_category_id)
+                                    ListOfFruits.Add(productToAdd);
+                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Vegetables_category_id)
+                                    ListOfVegetables.Add(productToAdd);
+                                else if (productToAdd.category_id == Properties.Settings.Default.DB_Bread_category_id)
+                                    ListOfBread.Add(productToAdd);
+                                else
+                                    ListOfOther.Add(productToAdd);
+                            }
+                        });
+                    }
+                }
+                catch(Exception)
+                {
+                    Console.WriteLine("Problems with db");
+                    throw new NotImplementedException(); // TODO add popup or some information about db problem
                 }
             });
         }

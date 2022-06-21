@@ -104,7 +104,7 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                     return false;
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Console.WriteLine("Problems with db");
                 throw new NotImplementedException(); // TODO add popup or some information about db problem
