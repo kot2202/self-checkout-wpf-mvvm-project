@@ -19,7 +19,7 @@ namespace Self_checkout.WpfApp.Models
             product_img = productToCopyFrom.product_img;
             if(product_img == null)
             {
-                product_img = File.ReadAllBytes("Config/placeholderProductImg.jpg");
+                product_img = File.ReadAllBytes("Config/Images/placeholderProductImg.jpg");
             }
 
             product_id = productToCopyFrom.product_id;

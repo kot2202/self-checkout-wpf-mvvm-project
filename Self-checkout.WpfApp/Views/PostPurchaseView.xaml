@@ -12,6 +12,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Image Source="kasa3.png"></Image>
+        <Image Source="/Config/Images/cashRegisterImg.png"></Image>
     </Grid>
 </UserControl>
