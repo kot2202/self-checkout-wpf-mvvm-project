@@ -49,7 +49,7 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3" SelectionMode="Single" Margin="1">
+                <ListView ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" d:ItemsSource="{d:SampleData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3" SelectionMode="Single" Margin="1">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -63,7 +63,9 @@
                             <GridViewColumn ctrl:ProportionalColumn.Width="1">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Image Source="{Binding product_img}" />
+                                        <Viewbox MaxHeight="90" MaxWidth="90">
+                                            <Image Source="{Binding product_img}" />
+                                        </Viewbox>
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -162,7 +164,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" FontSize="26" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1"/>
+                <TextBox Name="inputTextBox" Text="{Binding ScreenValue}" d:Text="1234567890123" IsReadOnly="True" FontSize="25" TextAlignment="Center" VerticalContentAlignment="Center" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" Grid.ColumnSpan="3" Margin="1">
+                </TextBox>
                 <Button Command="{Binding UndoNumberCommand}" Grid.Row="2" Grid.Column="1" Margin="1">
                     <Grid>
                         <Grid.ColumnDefinitions>
