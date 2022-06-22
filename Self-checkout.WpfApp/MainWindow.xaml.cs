@@ -39,6 +39,7 @@ namespace Self_checkout.WpfApp
             WindowState = WindowState.Maximized;
             ResizeMode = ResizeMode.NoResize;
             Topmost = true;
+            IsCloseButtonEnabled = false;
 #endif
         }
     }
