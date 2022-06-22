@@ -3,6 +3,9 @@
     <!--#region InputButton-->
     <Style x:Key="InputButton" TargetType="Button" BasedOn="{StaticResource MahApps.Styles.Button}">
         <Setter Property="Margin" Value="1" />
+        <Setter Property="Background" Value="#DEDABD"/>
+        <Setter Property="BorderBrush" Value="#D2DEBD"/>
+        <Setter Property="Focusable" Value="False"/>
     </Style>
     <DataTemplate x:Key="ButtonContentTemplate1">
         <Viewbox>
