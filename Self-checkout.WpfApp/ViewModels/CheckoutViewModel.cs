@@ -98,6 +98,9 @@ namespace Self_checkout.WpfApp.ViewModels
             set { _listOfProducts = value; }
         }
 
+        public int OrderId { get; set; }
+        public DateTime OrderTime { get; set; }
+
         public void RecalculatePriceSum()
         {
             decimal price = 0;

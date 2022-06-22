@@ -1,4 +1,5 @@
 ﻿using Self_checkout.WpfApp.Commands.Base;
+using Self_checkout.WpfApp.Config;
 using Self_checkout.WpfApp.DAL;
 using Self_checkout.WpfApp.Models;
 using Self_checkout.WpfApp.ViewModels;
@@ -29,6 +30,8 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                     int newOrderId = dbContext.Order.Max(x => (int?)x.order_id) + 1 ?? 1;
 
                     DateTime currentTime = DateTime.Now;
+                    _viewmodel.OrderId = newOrderId;
+                    _viewmodel.OrderTime = currentTime;
                     foreach (ProductModel purchasedProduct in _viewmodel.ListOfProducts)
                     {
                         Order orderProduct = new Order()
@@ -49,6 +52,8 @@ namespace Self_checkout.WpfApp.Commands.CheckoutView
                 Console.WriteLine("Problems with db");
                 throw new NotImplementedException(); // TODO add popup or some information about db problem
             }
+            Receipt receipt = new Receipt(_viewmodel);
+            receipt.Print();
             _viewmodel.NavigatePostPurchaseCommand.Execute(null);
         }
 
