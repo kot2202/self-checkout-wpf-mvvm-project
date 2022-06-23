@@ -248,7 +248,7 @@
         </Setter>
     </Style>
     <!--#endregion-->
-    <!--#region -->
+    <!--#region ListViewItemStyle -->
     <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
         <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
         <Setter Property="Margin" Value="0"/>
@@ -271,6 +271,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
+    <!--#endregion-->
     <Style x:Key="PopupListBoxItem" TargetType="{x:Type ListBoxItem}">
 
     </Style>
