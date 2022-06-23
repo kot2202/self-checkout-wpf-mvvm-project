@@ -49,27 +49,19 @@
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <ListView BorderBrush="#D2DEBD" BorderThickness="2" ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" d:ItemsSource="{d:SampleData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3" SelectionMode="Single" Margin="1">
+                <ListView BorderBrush="#D2DEBD" ItemContainerStyle="{DynamicResource ListViewItemStyle}" BorderThickness="2" ctrl:ListViewLayoutManager.Enabled="True" ItemsSource="{Binding ListOfProducts}" d:ItemsSource="{d:SampleData}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.RowSpan="6" Grid.ColumnSpan="3" SelectionMode="Single" Margin="1">
                     <ListView.Background>
                         <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                             <GradientStop Color="#D2DEBD" Offset="0"/>
                             <GradientStop Color="White" Offset="1"/>
                         </LinearGradientBrush>
                     </ListView.Background>
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                            <Setter Property="BorderThickness" Value="0,0,0,1"/>
-                            <Setter Property="BorderBrush" Value="Black"/>
-                            <Setter Property="Margin" Value="0,5"/>
-                        </Style>
-                    </ListView.ItemContainerStyle>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn ctrl:ProportionalColumn.Width="1">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <Viewbox MaxHeight="90" MaxWidth="90">
+                                        <Viewbox MaxHeight="90" MaxWidth="90" Margin="0,10">
                                             <Image Source="{Binding product_img}" />
                                         </Viewbox>
                                     </DataTemplate>

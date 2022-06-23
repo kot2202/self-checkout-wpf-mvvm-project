@@ -11,7 +11,6 @@
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Label Content="Welcome View"/>
-        <Button Grid.Column="1" Content="Next screen" Command="{Binding NavigateCheckoutCommand}" HorizontalAlignment="Right" Margin="0,373,8,0" Width="240"/>
+        <Button Grid.Column="1" Content="Next screen" Command="{Binding NavigateCheckoutCommand}" VerticalAlignment="Bottom" Height="115" Margin="16,0,0,0"/>
     </Grid>
 </UserControl>

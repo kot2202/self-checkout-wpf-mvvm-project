@@ -40,6 +40,7 @@ namespace Self_checkout.WpfApp
             ResizeMode = ResizeMode.NoResize;
             Topmost = true;
             IsCloseButtonEnabled = false;
+            ShowCloseButton = false;
 #endif
         }
     }
