@@ -77,7 +77,7 @@ namespace Self_checkout.WpfApp.Config
             ev.Graphics.DrawString("SAMPLE BILL", headingFont, Brushes.Black, 108, height, new StringFormat());
             height += 30;
             //Print Company Address
-            ev.Graphics.DrawString("4 th Cross Street, City - Pincode", normalFont, Brushes.Black,80 , height, new StringFormat());
+            ev.Graphics.DrawString("12-345, City, Street ABC 5", normalFont, Brushes.Black,90 , height, new StringFormat());
             height += 30;
 
             //Print Receipt No
@@ -106,8 +106,8 @@ namespace Self_checkout.WpfApp.Config
             {
                 DataRow dr = dt.NewRow();
                 dr[0] = product.product_name;
-                dr[1] = product.product_price;
-                dr[2] = product.CalculatedQuantity;
+                dr[1] = product.CalculatedQuantity;
+                dr[2] = product.product_price;
                 dr[3] = product.PriceSum;
                 dt.Rows.Add(dr);
             }
