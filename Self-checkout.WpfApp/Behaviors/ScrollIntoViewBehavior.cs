@@ -9,7 +9,7 @@ using System.Windows.Controls;
 
 namespace Self_checkout.WpfApp.Behaviors
 {
-
+    // https://stackoverflow.com/a/26649085
     public class ScrollIntoViewBehavior : Behavior<ListBox>
     {
         protected override void OnAttached()
