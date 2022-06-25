@@ -8,7 +8,7 @@
         xmlns:views="clr-namespace:Self_checkout.WpfApp.Views"
         xmlns:local="clr-namespace:Self_checkout.WpfApp"
         mc:Ignorable="d"
-        Title="Store App" MinHeight="480" MinWidth="640" Height="480" Width="640">
+        BorderThickness="0" Title="Store App" MinHeight="480" MinWidth="640" Height="480" Width="640">
     <ContentControl Content="{Binding CurrentViewModel}">
         <ContentControl.Resources>
             <DataTemplate DataType="{x:Type viewmodels:WelcomeViewModel}">
