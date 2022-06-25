@@ -12,6 +12,14 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Grid>
-        <Image Source="/Config/Images/cashRegisterImg.png"></Image>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Source="/Config/Images/cashRegisterImg.png" Grid.RowSpan="2"/>
+        <Viewbox Grid.Row="2">
+            <Label Content="Dziękujemy za zakupy. Odbierz paragon." HorizontalContentAlignment="Center"/>
+        </Viewbox>
     </Grid>
 </UserControl>

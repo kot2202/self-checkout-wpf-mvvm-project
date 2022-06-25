@@ -11,6 +11,24 @@
             <ColumnDefinition Width="6*"/>
             <ColumnDefinition Width="4*"/>
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="1" Content="Next screen" Command="{Binding NavigateCheckoutCommand}" VerticalAlignment="Bottom" Height="115" Margin="16,0,0,0"/>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Viewbox Grid.RowSpan="3">
+            <Label Content="Kasa czynna"/>
+        </Viewbox>
+        <Grid Grid.RowSpan="3" Grid.Column="1">
+            <Button Style="{DynamicResource InputButton}" Command="{Binding NavigateCheckoutCommand}">
+                <Viewbox>
+                    <Label Content="Rozpocznij" VerticalAlignment="Bottom">
+                        <Label.LayoutTransform>
+                            <RotateTransform Angle="45"/>
+                        </Label.LayoutTransform>
+                    </Label>
+                </Viewbox>
+            </Button>
+        </Grid>
     </Grid>
 </UserControl>
