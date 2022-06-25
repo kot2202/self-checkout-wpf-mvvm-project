@@ -95,6 +95,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Behaviors\ScrollIntoViewBehavior.cs" />
     <Compile Include="Commands\CheckoutView\AddNumberCommand.cs" />
     <Compile Include="Commands\CheckoutView\AddProductCommand.cs" />
     <Compile Include="Commands\CheckoutView\ClearCommand.cs" />

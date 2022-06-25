@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Self_checkout.WpfApp.Views" xmlns:viewmodels="clr-namespace:Self_checkout.WpfApp.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:CheckoutViewModel}"
-             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:userControls="clr-namespace:Self_checkout.WpfApp.UserControls"
+             xmlns:ctrl="clr-namespace:Itenso.Windows.Controls.ListViewLayout;assembly=Itenso.Windows.Controls.ListViewLayout" xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks" xmlns:userControls="clr-namespace:Self_checkout.WpfApp.UserControls" xmlns:i="http://schemas.microsoft.com/xaml/behaviors" xmlns:bhv="clr-namespace:Self_checkout.WpfApp.Behaviors"
              mc:Ignorable="d" 
              Focusable="True" Loaded="CheckoutViewControl_Loaded"
              d:DesignHeight="480" d:DesignWidth="640" Background="Beige">
@@ -56,6 +56,9 @@
                             <GradientStop Color="White" Offset="1"/>
                         </LinearGradientBrush>
                     </ListView.Background>
+                    <i:Interaction.Behaviors>
+                        <bhv:ScrollIntoViewBehavior/>
+                    </i:Interaction.Behaviors>
                     <ListView.View>
                         <GridView>
                             <GridViewColumn ctrl:ProportionalColumn.Width="1">
