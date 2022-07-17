@@ -30,6 +30,12 @@ namespace Self_checkout.WpfApp
         private void InitializeMainWindow()
         {
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            ShowTitleBar = false;
+            ResizeMode = ResizeMode.NoResize;
+            ShowMinButton = false;
+            ShowMaxRestoreButton = false;
+            ShowCloseButton = false;
+            WindowStyle = WindowStyle.None;
 #if DEBUG
             ResizeMode = ResizeMode.CanResizeWithGrip;
 #else
