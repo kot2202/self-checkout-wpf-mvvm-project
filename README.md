@@ -48,9 +48,9 @@ Self-Checkout is interface project to enable self checkout in a store scenario. 
 ## ⚙ How to run the program locally
 ⚠ Design view may not render if visual studio version is lower than 2019 16.6 and the option `Use the preview Windows Forms designer for .NET Core apps` is disabled.<br /><br />
 ❗ By default bill printing works by printing to .pdf file in PrintOuts folder located in `bin/Debug` or `bin/Release` this may ❗ NOT work if you do not have `Microsoft Print to PDF` Printer installed. Edit `Config/Receipt.cs` PrinterName and disable `PrintToFile` or install `Microsoft Print to PDF` if that is the case.
-1. Create DB named `Store` and SQL Tables - [(SQL_CreateTable.txt)](SQL_CreateTable.txt)
+1. Clone this repository
+2. Create DB named `Store` and SQL Tables - [(SQL_CreateTable.txt)](SQL_CreateTable.txt)
 <kbd><img src="resources/dbDiagram.png" /></kbd>
-2. Insert records into tables - [Example records (without product images) - (SQL_Insert.txt)](SQL_Insert.txt)
-3. Clone this repository
+3. Insert records into tables - [Example records (without product images) - (SQL_Insert.txt)](SQL_Insert.txt)
 4. Run the project file, right click the solution and rebuild it
 5. Switch the configuration from `Debug` to `Release` to run the program in fullscreen as intended without any extra controls that could create security breach
