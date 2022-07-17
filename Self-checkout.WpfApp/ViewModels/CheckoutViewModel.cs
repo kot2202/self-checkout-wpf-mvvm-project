@@ -106,7 +106,7 @@ namespace Self_checkout.WpfApp.ViewModels
             decimal price = 0;
             foreach(ProductModel product in _listOfProducts)
             {
-                price += product.CalculatedQuantity * product.product_price;
+                price += product.PriceSum;
             }
             PriceSum = price;
         }
